@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Strona startowa</title>
+</head>
+<body>
+<h1>Witaj na stronie startowej Symfony 6!</h1>
+
+<h2>Dostępne endpointy:</h2>
+<ul>
+    {% for route in routes %}
+        <li><a href="{{ route }}">{{ route }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>
