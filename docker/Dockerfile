@@ -25,7 +25,7 @@ RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 #    && git config --global user.name "dgos"
 
 ## COPY FILES
-#RUN rm /root/.bashrc
-#ADD copy_files/.bashrc /root/.bashrc
-#ADD copy_files/.bash_aliases /root/.bash_aliases
+RUN rm /root/.bashrc
+ADD docker/copy_files/.bashrc /root/.bashrc
+ADD docker/copy_files/.bash_aliases /root/.bash_aliases
 
