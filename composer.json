@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "project/satelite-list",
+    "description": "satelite list",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -60,8 +62,3 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
-            "require": "6.3.*"
-        }
-    }
-}
