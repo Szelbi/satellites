@@ -1,4 +1,4 @@
-### Satelite-list project build on PHP 8.2 and Symfony 6.3
+### Satellites project build on PHP 8.2 and Symfony 6.3
 
 ## Requirements
 - docker
