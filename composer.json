@@ -1,12 +1,12 @@
 {
     "type": "project",
-    "name": "project/satelite-list",
-    "description": "satelite list",
+    "name": "project/satellites",
+    "description": "satellites",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "*",

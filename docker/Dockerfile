@@ -1,5 +1,5 @@
 # docker build -t php-fpm-image:dev .
-FROM php:8.1.9-fpm
+FROM php:8.2-fpm
 
 WORKDIR /var/www/html
 
