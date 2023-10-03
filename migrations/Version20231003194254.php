@@ -12,7 +12,7 @@ final class Version20231003194254 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Create satelites table';
+        return 'Create satellites table';
     }
 
     public function up(Schema $schema): void
