@@ -8,7 +8,10 @@ LABEL name="php-fpm image" \
 	version="0.1"
 
 RUN apt-get update
-RUN apt-get install -y git curl zip unzip vim nano htop wget mc
+RUN apt-get install -y git curl zip unzip vim nano htop wget mc iputils-ping
+
+RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo_mysql
 
 ## COMPOSER
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
