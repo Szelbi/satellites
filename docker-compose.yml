@@ -10,6 +10,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+      - /etc/localtime:/etc/localtime:ro
 
   nginx:
     image: nginx:1.19-alpine
