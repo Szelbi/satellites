@@ -2,16 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Satellite;
 use App\Service\SatelliteService;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SatelliteController extends AbstractController
 {
-    #[Route('/satellite/list')]
+    #[Route('/satellites/list')]
     public function list(SatelliteService $service): Response
     {
         $satellites = $service->getAllSatellites();
