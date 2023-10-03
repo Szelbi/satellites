@@ -7,7 +7,7 @@
 ## Installation
 `docker-compose up -d`
 
-Within container:
+Within container:  
 `composer install`
 
 ---
