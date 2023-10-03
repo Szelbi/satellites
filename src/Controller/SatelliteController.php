@@ -35,7 +35,7 @@ class SatelliteController extends AbstractController
 
         return $this->render('satellite/list.html.twig', [
             'satellites' => $satellites,
-            'time' => $currentTime = date("Y-m-d H:i:s")
+            'time' => date("Y-m-d H:i:s")
         ]);
     }
 }
