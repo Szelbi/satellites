@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satellites</title>
     <style>
+        body {
+            margin: 20px 40px
+        }
         table {
             border-collapse: collapse;
-            margin: 50px auto;
         }
 
         th, td {
             border: 1px solid black;
-            padding: 0.2em 1em;
-        }
-
-        th {
-            background-color: grey;
+            padding: 2px 20px;
         }
 
     </style>
@@ -25,7 +23,9 @@
 
 <p>Render time: {{ time }}</p>
 
-<table>
+<input type="text" id="searchInput" placeholder="Szukaj...">
+
+<table id="satelliteTable">
     <tr>
         <th>PROD</th>
         <th>LOCAL</th>
@@ -38,6 +38,27 @@
     {% endfor %}
 </table>
 
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('satelliteTable');
+        tr = table.getElementsByTagName('tr');
+
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td')[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
