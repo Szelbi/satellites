@@ -1,0 +1,5 @@
+doctrine:
+    dbal:
+        connections:
+            evisa:
+                schema_filter: '/^satellites/'
