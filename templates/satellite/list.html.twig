@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellites</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 0.2em 1em;
+        }
+
+        th {
+            background-color: grey;
+        }
+
+    </style>
+</head>
+<body>
+
+<p>Render time: {{ time }}</p>
+
+<table>
+    <tr>
+        <th>PROD</th>
+        <th>LOCAL</th>
+    </tr>
+    {% for satellite in satellites %}
+        <tr>
+            <td><a href="{{ 'http://' ~ satellite }}" target="_blank">{{ satellite }}</a></td>
+            <td><a href="{{ 'http://' ~ satellite ~ '.local' }}" target="_blank">{{ satellite ~ '.local' }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>
