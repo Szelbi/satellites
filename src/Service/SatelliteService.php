@@ -11,9 +11,8 @@ class SatelliteService
 {
     private EntityRepository $repository;
 
-    public function __construct(
-        private EntityManagerInterface $em
-    ) {
+    public function __construct(EntityManagerInterface $em)
+    {
         $this->repository = $em->getRepository(Satellite::class);
     }
 
