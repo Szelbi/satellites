@@ -5,19 +5,28 @@ services:
     build:
       context: ./
       dockerfile: docker/Dockerfile
-    container_name: satelite-list-app
+    container_name: satellites-app
     restart: always
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
       - /etc/localtime:/etc/localtime:ro
+    networks:
+      - satellite-network
 
   nginx:
     image: nginx:1.19-alpine
-    container_name: satelite-list-nginx
+    container_name: satellites-nginx
     restart: always
     ports:
       - 8006:86
     volumes:
       - ./:/var/www/html
       - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - satellite-network
+
+networks:
+  satellite-network:
+    name: docker_default
+    external: true
