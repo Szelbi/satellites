@@ -10,6 +10,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "*",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
