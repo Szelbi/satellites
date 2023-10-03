@@ -8,5 +8,6 @@ alias grep='grep --color=auto'
 
 # project aliases
 alias pbc='php bin/console'
-alias cc='php bin/console cache:clear'
+alias rmc='rm -rf var/cache; echo var/cache removed'
+alias cc='rm -rf var/cache; php bin/console cache:clear; echo var/cache removed \& cache cleared'
 
