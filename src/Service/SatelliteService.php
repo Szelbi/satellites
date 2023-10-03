@@ -9,6 +9,11 @@ use Doctrine\ORM\EntityRepository;
 
 class SatelliteService
 {
+    const API_PROJECTS_DOMAINS = [
+        'epapi',
+        'restapi'
+    ];
+
     private EntityRepository $repository;
 
     public function __construct(EntityManagerInterface $em)
@@ -23,4 +28,12 @@ class SatelliteService
         sort($satellitesDomains);
         return $satellitesDomains;
     }
+
+    public function getAllProjects(): array
+    {
+        $satellites = $this->getAllSatellites();
+
+        return array_merge($satellites, self::API_PROJECTS_DOMAINS);
+    }
+
 }
