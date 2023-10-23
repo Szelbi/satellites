@@ -1,6 +1,7 @@
 body {
     background-color: beige;
-    margin: 20px 40px
+    margin: 20px 40px;
+    font-family: Tahoma, sans-serif;
 }
 
 table {
