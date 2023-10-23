@@ -8,20 +8,6 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% endblock %}
-        <style>
-            body {
-                background: lightskyblue;
-                margin: 20px 40px
-            }
-            table {
-                border-collapse: collapse;
-            }
-
-            th, td {
-                border: 1px solid black;
-                padding: 2px 20px;
-            }
-        </style>
 
         {% block javascripts %}
             {{ importmap() }}

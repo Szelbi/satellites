@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="">
-<head>
-    <title>Main page</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block body %}
+
 <h1>Welcome to the main page of the Symfony 6 application!</h1>
 
 <h2>Available endpoints:</h2>
@@ -12,5 +12,5 @@
         <li><a href="{{ route }}">{{ route }}</a></li>
     {% endfor %}
 </ul>
-</body>
-</html>
+
+{% endblock %}
