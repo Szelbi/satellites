@@ -4,22 +4,22 @@
 
 {% block body %}
 
-<p>Rendered at: {{ time }}</p>
+    <p>Rendered at: {{ time }}</p>
 
-<input type="text" id="searchInput" placeholder="Search...">
+    <input type="text" id="searchInput" placeholder="Search...">
 
-<table id="satelliteTable">
-    <tr>
-        <th>PROD</th>
-        <th>LOCAL</th>
-    </tr>
-    {% for satellite in satellites %}
+    <table id="satelliteTable">
         <tr>
-            <td><a href="{{ 'https://' ~ satellite }}" target="_blank">{{ satellite }}</a></td>
-            <td><a href="{{ 'https://' ~ satellite ~ '.local' }}" target="_blank">{{ satellite ~ '.local' }}</a></td>
+            <th>PROD</th>
+            <th>LOCAL</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for satellite in satellites %}
+            <tr>
+                <td><a href="{{ 'https://' ~ satellite }}" target="_blank">{{ satellite }}</a></td>
+                <td><a href="{{ 'https://' ~ satellite ~ '.local' }}" target="_blank">{{ satellite ~ '.local' }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
 
