@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satellites</title>
-    <style>
-        body {
-            margin: 20px 40px
-        }
-        table {
-            border-collapse: collapse;
-        }
+{% extends 'base.html.twig' %}
 
-        th, td {
-            border: 1px solid black;
-            padding: 2px 20px;
-        }
+{% block title %}List of Satelites{% endblock %}
 
-    </style>
-</head>
-<body>
+{% block body %}
 
 <p>Rendered at: {{ time }}</p>
 
@@ -64,5 +47,4 @@
     });
 </script>
 
-</body>
-</html>
+{% endblock %}
