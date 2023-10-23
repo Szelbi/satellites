@@ -1,3 +1,13 @@
 body {
-    background-color: skyblue;
+    background-color: beige;
+    margin: 20px 40px
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 2px 20px;
 }
