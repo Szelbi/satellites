@@ -15,7 +15,11 @@
  */
 return [
     'app' => [
-        'path' => 'app.js',
+        'path' => 'js/app.js',
+        'preload' => true,
+    ],
+    'satellites' => [
+        'path' => 'js/satellites.js',
         'preload' => true,
     ],
 ];
