@@ -22,4 +22,7 @@ return [
         'path' => 'js/satellites.js',
         'preload' => true,
     ],
+    'jquery' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/+esm',
+    ],
 ];

@@ -1,23 +1,17 @@
-window.addEventListener('load', function() {
-    document.getElementById('searchInput').focus();
+import $ from 'jquery';
+
+$(document).ready(function() {
+    $('#searchInput').focus();
 });
 
-document.getElementById('searchInput').addEventListener('keyup', function() {
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById('searchInput');
-    filter = input.value.toUpperCase();
-    table = document.getElementById('satelliteTable');
-    tr = table.getElementsByTagName('tr');
+$('#searchInput').on('keyup', function() {
+    let filter = $(this).val().toUpperCase();
 
-    for (i = 1; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName('td')[0];
+    $('#satelliteTable tr:gt(0)').each(function() {
+        let td = $(this).find('td:eq(0)');
         if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = '';
-            } else {
-                tr[i].style.display = 'none';
-            }
+            let txtValue = td.text().toUpperCase();
+            $(this).toggle(txtValue.indexOf(filter) > -1);
         }
-    }
+    });
 });
