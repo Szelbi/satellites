@@ -19,8 +19,10 @@ class MainController extends AbstractController
     public function index(): Response
     {
         $routes = $this->router->getRouteCollection()->all();
+        $myRoutes = array_filter($routes,
+            fn ($value, $key) => !str_starts_with($key, '_') && $value->getPath() !== '/',
+            ARRAY_FILTER_USE_BOTH);
 
-        $myRoutes = array_filter($routes, fn ($key) => !str_starts_with($key, '_'), ARRAY_FILTER_USE_KEY);
         $myRoutesPaths = array_map(fn(SymfonyRoute $route) => $route->getPath(), $myRoutes);
 
         return $this->render('main/index.html.twig', [
