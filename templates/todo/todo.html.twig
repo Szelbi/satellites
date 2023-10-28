@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}To-do List!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/todo.scss') }}">
+{% endblock %}
+
+{% block body %}
+
+    <p>Rendered at: {{ time }}</p>
+
+    <input type="text" id="searchInput" placeholder="Search...">
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ importmap('satellites') }}
+{% endblock %}
