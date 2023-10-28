@@ -1,0 +1,170 @@
+//*,
+//*:hover {
+//  margin: 0;
+//  padding: 0;
+//  box-sizing: border-box;
+//  border: 0;
+//  // outline: none;
+//}
+
+body {
+  background: linear-gradient(220deg, hsl(55, 80%, 70%), hsl(150, 80%, 70%), hsl(220, 80%, 70%));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.container {
+  padding: 1rem;
+  text-align: center;
+  min-width: 400px;
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  padding: 3rem 0;
+  text-shadow: 2px 2px 6px #6669;
+}
+
+.todos-container {
+  margin: 2rem 0;
+}
+
+.input-form,
+.todo-item {
+  display: flex;
+  margin: 0.5rem 0;
+  box-shadow: 2px 2px 7px 0px #6666;
+  transition: all 0.5s ease;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 5px #6666;
+  }
+}
+
+.todo-input,
+.todo-value {
+  color: #666;
+  padding: 5px 10px;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+$green: hsl(125, 100%, 35%);
+$red: hsl(22, 100%, 40%);
+$purple: hsl(288, 100%, 40%);
+
+.todo-btn {
+  font-size: 1.3rem;
+  padding: 3px;
+  transition: all 0.3s ease;
+  background: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.todo-btn-add {
+    color: $purple;
+
+    &:hover {
+      background: $purple;
+      color: white;
+    }
+  }
+
+  &.todo-btn-remove {
+    color: $red;
+
+    &:hover {
+      background: $red;
+      color: white;
+    }
+  }
+
+  &.todo-btn-done {
+    color: $green;
+
+    &:hover {
+      background: $green;
+      color: white;
+    }
+  }
+}
+
+.fa-check-circle,
+.fa-trash-alt {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through #666;
+  opacity: 0.7;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0.2;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 0px;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 2rem 0;
+}
+
+.radiobtn {
+  padding: 1rem;
+
+  label {
+    border-radius: 0.3rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 10px 1px #6666;
+
+    &:hover {
+      box-shadow: 0px 0px 10px 5px #6666;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+    appearance: none;
+
+    &:checked + label {
+      background: transparentize($purple, 0.5);
+      transition: all 0.5s ease;
+      border-color: $purple;
+    }
+  }
+}
