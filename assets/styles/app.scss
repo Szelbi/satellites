@@ -1,7 +1,23 @@
+@import "footer";
+@import "todo";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+}
+
 body {
-    background-color: #fffff8;
-    margin: 20px 40px;
-    font-family: Tahoma, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    &:not(#homepage) {
+        padding-top: 110px
+    }
 }
 
 table {
@@ -11,6 +27,15 @@ table {
 th, td {
     border: 1px solid black;
     padding: 2px 20px;
+}
+
+footer {
+    margin-top: auto;
+}
+
+p
+.align {
+    text-align: center;
 }
 
 .lucky-number {
