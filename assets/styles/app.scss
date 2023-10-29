@@ -86,6 +86,11 @@ a {
     gap: 20px;
     color: $primaryFontColor;
 
+    a:hover {
+        color: $headingFontColor;
+
+    }
+
     #searchInput {
         width: 100%;
         padding: 5px;
