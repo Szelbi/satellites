@@ -1,11 +1,4 @@
-//*,
-//*:hover {
-//  margin: 0;
-//  padding: 0;
-//  box-sizing: border-box;
-//  border: 0;
-//  // outline: none;
-//}
+@import "variables";
 
 body {
   background: linear-gradient(220deg, hsl(55, 80%, 70%), hsl(150, 80%, 70%), hsl(220, 80%, 70%));
@@ -23,11 +16,6 @@ body {
       background-position: 0 50%;
     }
   }
-
-  color: white;
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
 }
 
 .container {
@@ -136,8 +124,6 @@ $purple: hsl(288, 100%, 40%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex: 1 1 0px;
-  flex-basis: auto;
   flex-grow: 1;
   flex-basis: 0;
   margin: 2rem 0;
