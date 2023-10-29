@@ -3,14 +3,20 @@
 {% block title %}Main page{% endblock %}
 
 {% block body %}
-        <div class="homepage">
-                <h1>Main page</h1>
+    <div class="homepage width-small">
 
-                <h3>Available endpoints:</h3>
-                <ul>
-                        {% for route in routes %}
-                                <li><a href="{{ route }}">{{ route }}</a></li>
-                        {% endfor %}
-                </ul>
+        <div class="header">
+            <h1>Main page</h1>
         </div>
+
+        <div class="endpoints-container">
+            <h3>Available endpoints:</h3>
+            <div class="endpoints-container-list">
+                {% for route in routes %}
+                    <a href="{{ route }}" class="button">{{ route }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
 {% endblock %}

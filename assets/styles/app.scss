@@ -2,22 +2,18 @@
 @import "todo";
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     border: 0;
     outline: none;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-    &:not(#homepage) {
-        padding-top: 110px
-    }
 }
 
 table {
@@ -37,7 +33,49 @@ li {
     list-style: none;
 }
 
+.hidden {
+    display: none;
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
 .lucky-number {
     font-size: 5rem;
     font-weight: bold;
+}
+
+.endpoints-container {
+    padding: 20px 0;
+
+    .endpoints-container-list {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding: 10px;
+            margin: 5px 0;
+            box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.7);;
+
+            &:hover {
+                box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}
+
+
+.satellite-table-container {
+    #searchInput {
+        width: 100%;
+        padding: 5px;
+        margin: 10px 0;
+    }
 }
