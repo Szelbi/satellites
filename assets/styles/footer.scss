@@ -31,7 +31,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
     flex-wrap: wrap;
 
     .menu-link {
@@ -76,12 +75,12 @@
 
 .wave {
   position: absolute;
-  top: -100px;
+  top: -60px;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 60px;
   background: url("https://i.ibb.co/wQZVxxk/wave.png");
-  background-size: 1000px 100px;
+  background-size: 1000px 60px;
 }
 
 .wave#wave1 {
