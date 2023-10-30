@@ -5,6 +5,20 @@
 {% block body %}
     <div class="header">
         <h2>Your lucky number is </h2>
-        <p class="lucky-number">{{ number }}</p>
+        <p id="lucky-number">{{ number }}</p>
+        <button onclick="getLuckyNumber()">Reload</button>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        function getLuckyNumber() {
+            fetch('/lucky/number/get')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('lucky-number').textContent = data.number;
+                });
+        }
+    </script>
+{% endblock %}
+
