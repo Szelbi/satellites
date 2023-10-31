@@ -90,9 +90,6 @@ function checkOrRemove(event) {
     let todo = item.parentElement;
     let todoId = todo.children[0].id;
 
-    // console.log(['item', item], ['todo', todo], ['todoValue', todoValue]);
-
-
     // delete todo
     if (item.classList[1] === 'todo-btn-remove') {
         todo.classList.toggle('fall');
