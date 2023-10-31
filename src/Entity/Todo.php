@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
+use App\Enum\DateFormatEnum;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 #[ORM\Table(name:"todos")]
 #[ORM\Entity]
-class Todo implements EntityInterface
+class Todo implements EntityInterface, \JsonSerializable
 {
     use IdTrait;
 
@@ -54,5 +55,15 @@ class Todo implements EntityInterface
     public function __toString(): string
     {
         return (string)$this->id;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'label' => $this->label,
+            'isDone' => $this->isDone,
+            'createdAt' => $this->createdAt->format(DateFormatEnum::DATE_TIME->value),
+        ];
     }
 }
