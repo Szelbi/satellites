@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Table(name:"satellites")]
 #[ORM\Entity]
-class Satellite
+class Satellite implements EntityInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: "IDENTITY")]
@@ -68,5 +68,10 @@ class Satellite
     public function setVisaTypeKeyName(?string $visaTypeKeyName): void
     {
         $this->visaTypeKeyName = $visaTypeKeyName;
+    }
+
+    public function __toString(): string
+    {
+        return (string)$this->id;
     }
 }
