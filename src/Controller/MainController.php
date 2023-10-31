@@ -1,12 +1,11 @@
 <?php
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Routing\Route as SymfonyRoute;
+use Symfony\Component\Routing\RouterInterface;
 
 class MainController extends AbstractController
 {
@@ -15,7 +14,7 @@ class MainController extends AbstractController
     ) {
     }
 
-    #[Route('/', name: 'app_main_page')]
+    #[Route('/', name: 'main_page')]
     public function index(): Response
     {
         $routes = $this->router->getRouteCollection()->all();
