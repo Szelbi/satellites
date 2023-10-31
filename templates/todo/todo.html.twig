@@ -2,6 +2,11 @@
 
 {% block title %}To-do List!{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
+{% endblock %}
+
 {% block body %}
 
     <div class="width-small">
@@ -9,7 +14,7 @@
             <h2>Todo List</h2>
         </header>
         <form class="input-form">
-            <input type="text" class="todo-input">
+            <input type="text" class="todo-input" id="todo-input-field">
             <button class="todo-btn todo-btn-add" type="submit">
                 <i class="fas fa-plus-circle"></i>
             </button>
@@ -39,5 +44,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ importmap('satellites') }}
+    {{ importmap('todo') }}
 {% endblock %}
