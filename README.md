@@ -5,6 +5,7 @@
 - docker-compose
 
 ## Installation
+
 `docker-compose up -d`
 
 Within container:  
@@ -13,3 +14,10 @@ Within container:
 ---
 
 App will be available at `localhost:8006`
+
+
+
+---
+
+- Sass build - `php bin/console sass:build -w`
+- JS map rebuidl - `php bin/console  importmap:update`
