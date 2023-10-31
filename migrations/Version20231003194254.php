@@ -27,9 +27,8 @@ final class Version20231003194254 extends AbstractMigration
             $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
             for ($i = 1; $i < 10; $i++) {
                 $number = $formatter->format($i);
-                $this->addSql("INSERT INTO evisa_express.satellites
-                            (`domain`, recovery_link, flight_date_label_translation_key, visa_type_key_name)
-                            VALUES('domain-$number.com', 'https://{{domain}}/form-recovery?hash={{hash}}', 'flight date', NULL);"
+                $this->addSql("INSERT INTO satellites (`domain`, recovery_link, flight_date_label_translation_key)
+                            VALUES('domain-$number.com', 'https://{{domain}}/form-recovery?hash={{hash}}', 'flight date');"
                 );
             }
         }
