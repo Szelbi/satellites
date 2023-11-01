@@ -6,6 +6,7 @@ services:
       context: ./
       dockerfile: docker/Dockerfile
     container_name: satellites-app
+    image: php-custom:8.2-fpm
     restart: always
     working_dir: /var/www/html
     volumes:
