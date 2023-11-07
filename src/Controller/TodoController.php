@@ -7,7 +7,7 @@ use App\Service\TodoService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\InvalidMetadataException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -54,12 +54,13 @@ class TodoController extends AbstractController
     {
         $requestData = json_decode($request->getContent());
 
-        if(!isset($requestData->label)) {
-            throw new InvalidMetadataException('Wrong JSON data');
+        if (!isset($requestData->label) || !isset($requestData->isDone)) {
+            throw new BadRequestHttpException('Wrong JSON data');
         }
 
         $todo = new Todo();
         $todo->setLabel($requestData->label);
+        $todo->setIsDone($requestData->isDone);
 
         $this->service->transactionalMake($todo);
 
