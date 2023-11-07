@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Todo;
-use App\Enum\DateFormatEnum;
 use App\Service\TodoService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +21,9 @@ class TodoController extends AbstractController
     #[Route('/todos/index', name: 'todo_index')]
     public function index(): Response
     {
-        return $this->render('todo/todo.html.twig', [
-            'time' => date(DateFormatEnum::DATE_TIME->value)
-        ]);
+        $todos = $this->service->getAll();
+
+        return $this->render('todo/todo.html.twig', ['todos' => $todos]);
     }
 
     #[Route('/todos/{id}', name: 'todos_get_item', requirements: ['id' => '\d+'])]
@@ -41,13 +40,13 @@ class TodoController extends AbstractController
     #[Route('/todos', name: 'todos_get_collection', methods: ['GET'])]
     public function listAction(): Response
     {
-        $elements = $this->service->getAll();
+        $todos = $this->service->getAll();
 
-        if(empty($elements)) {
+        if(empty($todos)) {
             throw new NotFoundHttpException('No item was found');
         }
 
-        return $this->json($elements);
+        return $this->json($todos);
     }
 
     #[Route('/todos', name: 'todos_create', methods: ['POST'])]
