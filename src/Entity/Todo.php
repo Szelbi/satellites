@@ -16,7 +16,7 @@ class Todo implements EntityInterface, \JsonSerializable
     use PropertiesTrait;
 
     #[ORM\Column(length: 255)]
-    private string $label;
+    private ?string $label;
 
     #[ORM\Column(options: ["default" => false])]
     private bool $isDone = false;
@@ -34,7 +34,7 @@ class Todo implements EntityInterface, \JsonSerializable
         return $this->label;
     }
 
-    public function setLabel(string $label): void
+    public function setLabel(?string $label): void
     {
         $this->label = $label;
     }

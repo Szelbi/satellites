@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Todo;
+use App\Form\TodoType;
+use App\Form\Trait\FormHandleTrait;
 use App\Service\TodoService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -13,6 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TodoController extends AbstractController
 {
+    use FormHandleTrait;
+
     public function __construct(
         private readonly TodoService $service
     ) {
@@ -26,7 +32,7 @@ class TodoController extends AbstractController
         return $this->render('todo/todo.html.twig', ['todos' => $todos]);
     }
 
-    #[Route('/todos/{id}', name: 'todos_get_item', requirements: ['id' => '\d+'])]
+    #[Route('/todos/{id}', name: 'todos_get_item', requirements: ['id' => '\d+'], methods: ['GET'])]
     public function itemAction(int $id): Response
     {
         $element = $this->service->getById($id);
@@ -66,4 +72,27 @@ class TodoController extends AbstractController
 
         return $this->json($todo);
     }
+
+    #[Route('/todos/{id}', name: 'todos_update', methods: ['PATCH'])]
+    public function updateAction(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $todo = $entityManager->getRepository(Todo::class)->find($id);
+
+        if (!$todo) {
+            throw $this->createNotFoundException('Item with the specified ID not found: '.$id);
+        }
+
+        $form = $this->createForm(TodoType::class, $todo);
+
+        if (!$this->handleForm($form, $request)) {
+            return $this->json(['errors' => $this->getErrorsFromForm($form)], 400);
+        }
+
+        $entityManager->flush();
+
+        return $this->json($todo);
+    }
+
+
+
 }
