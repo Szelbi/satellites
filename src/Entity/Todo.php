@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\PropertiesTrait;
 use App\Entity\Trait\IdTrait;
 use App\Enum\DateFormatEnum;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +13,7 @@ use DateTime;
 class Todo implements EntityInterface, \JsonSerializable
 {
     use IdTrait;
+    use PropertiesTrait;
 
     #[ORM\Column(length: 255)]
     private string $label;
