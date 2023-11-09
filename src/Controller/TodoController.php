@@ -8,13 +8,13 @@ use App\Form\Trait\FormHandleTrait;
 use App\Service\TodoService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/todos')]
 class TodoController extends AbstractController
 {
     use FormHandleTrait;
@@ -24,7 +24,7 @@ class TodoController extends AbstractController
     ) {
     }
 
-    #[Route('/todos/index', name: 'todo_index')]
+    #[Route('/index', name: 'todo_index')]
     public function index(): Response
     {
         $todos = $this->service->getAll();
@@ -32,7 +32,7 @@ class TodoController extends AbstractController
         return $this->render('todo/todo.html.twig', ['todos' => $todos]);
     }
 
-    #[Route('/todos/{id}', name: 'todos_get_item', requirements: ['id' => '\d+'], methods: ['GET'])]
+    #[Route('/{id}', name: 'todos_get_item', requirements: ['id' => '\d+'], methods: ['GET'])]
     public function itemAction(int $id): Response
     {
         $element = $this->service->getById($id);
@@ -43,7 +43,7 @@ class TodoController extends AbstractController
         return $this->json($element);
     }
 
-    #[Route('/todos', name: 'todos_get_collection', methods: ['GET'])]
+    #[Route('/', name: 'todos_get_collection', methods: ['GET'])]
     public function listAction(): Response
     {
         $todos = $this->service->getAll();
@@ -55,7 +55,7 @@ class TodoController extends AbstractController
         return $this->json($todos);
     }
 
-    #[Route('/todos', name: 'todos_create', methods: ['POST'])]
+    #[Route('/', name: 'todos_create', methods: ['POST'])]
     public function createAction(Request $request): Response
     {
         $requestData = json_decode($request->getContent());
@@ -73,7 +73,7 @@ class TodoController extends AbstractController
         return $this->json($todo);
     }
 
-    #[Route('/todos/{id}', name: 'todos_update', methods: ['PATCH'])]
+    #[Route('/{id}', name: 'todos_update', methods: ['PATCH'])]
     public function updateAction(int $id, Request $request, EntityManagerInterface $entityManager): Response
     {
         $todo = $entityManager->getRepository(Todo::class)->find($id);

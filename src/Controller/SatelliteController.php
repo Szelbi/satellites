@@ -9,8 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SatelliteController extends AbstractController
 {
-    #[Route('/satellites/list')]
-    public function list(SatelliteService $service): Response
+    #[Route('/satellites/list', name: 'satellites_index')]
+    public function index(SatelliteService $service): Response
     {
         $satellites = $service->getAllSatellites();
 
