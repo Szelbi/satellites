@@ -3,13 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Todo;
-use Doctrine\DBAL\Types\BooleanType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class TodoType extends AbstractType
@@ -23,7 +21,7 @@ class TodoType extends AbstractType
             ])
             ->add('isDone', CheckboxType::class, [
                 'required' => true,
-                'constraints' => [new NotBlank()]
+                'constraints' => [new NotNull()]
             ]);
     }
 
@@ -31,6 +29,7 @@ class TodoType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Todo::class,
+            'csrf_protection' => false,
         ]);
     }
 }
