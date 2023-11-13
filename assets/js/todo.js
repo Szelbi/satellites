@@ -7,23 +7,31 @@ let todoItems = [];
 
 $(function() {
     $('#todo-input-field').trigger('focus');
-});
 
-$('.todo-type-switch-btn').each(function() {
-    $(this).on("click", function(event) {
-        filterTodoElements(event);
+    $('.todo-type-switch-btn').each(function() {
+        $(this).on("click", function(event) {
+            filterTodoElements(event);
+        });
     });
+
+    $('.input-form').on("submit", function(event) {
+        event.preventDefault();
+
+        let label = $('.todo-input').val().trim();
+        if (label !== '') {
+            createTodo(label);
+            $('.todo-input').val('');
+        }
+    });
+
+    $('.todo-btn-done').on('click', function () {
+
+        toggleDone($(this));
+    });
+
 });
 
-$('.input-form').on("submit", function(event) {
-    event.preventDefault();
 
-    let label = $('.todo-input').val().trim();
-    if (label !== '') {
-        addNewElement(label);
-        $('.todo-input').val('');
-    }
-});
 
 
 function renderTodoItem(todo) {
@@ -76,16 +84,27 @@ function removeTodo(todoId) {
     todoItems = todoItems.filter(item => item.id !== Number(todoId));
 }
 
-function toggleDone(todoId) {
-    let index = todoItems.findIndex(item => item.id === Number(todoId));
-    todoItems[index].checked = !todoItems[index].checked;
+function toggleDone(elem) {
+    let todoItem = elem.closest('.todo-item');
+    let todoId = todoItem.find('.todo-value').attr('id')
+
+    let isDone = todoItem.hasClass('completed')
+    if (isDone) {
+        todoItem.removeClass('completed');
+    } else {
+        todoItem.addClass('completed');
+    }
+    updateTodo(todoId, !isDone);
+
+    // let index = todoItems.findIndex(item => item.id === Number(todoId));
+    // todoItems[index].checked = !todoItems[index].checked;
 }
 
 function toJSON(array) {
     return JSON.stringify(array);
 }
 
-function addNewElement(label) {
+function createTodo(label) {
     $.ajax({
         url: '/todos',
         type: 'POST',
@@ -98,6 +117,22 @@ function addNewElement(label) {
             let message = 'An error occurred while adding a new element.';
             alert(message);
             console.error(message, error);
+        }
+    });
+}
+
+function updateTodo(todoId, isDone) {
+
+    $.ajax({
+        type: 'PATCH',
+        url: '/todos/' + todoId,
+        contentType: 'application/json',
+        data: JSON.stringify({ isDone: isDone }),
+        success: function () {
+            console.log('Todo status updated successfully');
+        },
+        error: function (error) {
+            console.log('Error updating todo status:', error);
         }
     });
 }
