@@ -27,12 +27,15 @@ body {
 }
 
 .header {
+  margin: 2rem 0;
   font-size: 2rem;
   text-align: center;
   text-shadow: 2px 2px 6px #6669;
 }
 
 .todos-container {
+  display:flex;
+  justify-content: center;
   margin: 2rem 0;
 }
 
