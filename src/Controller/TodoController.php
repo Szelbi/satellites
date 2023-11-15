@@ -93,6 +93,19 @@ class TodoController extends AbstractController
         return $this->json($todo);
     }
 
+    #[Route('/{id}', name: 'todo_delete', methods: ['DELETE'])]
+    public function deleteAction(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $todo = $entityManager->getRepository(Todo::class)->find($id);
 
+        if (!$todo) {
+            throw $this->createNotFoundException('Item with the specified ID not found: '.$id);
+        }
+
+        $entityManager->remove($todo);
+        $entityManager->flush();
+
+        return $this->json(['message' => 'Item deleted successfully']);
+    }
 
 }

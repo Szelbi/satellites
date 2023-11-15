@@ -19,20 +19,20 @@ $(function() {
 
         let label = $('.todo-input').val().trim();
         if (label !== '') {
-            createTodo(label);
+            createTodoAction(label);
             $('.todo-input').val('');
         }
     });
 
     $('.todo-btn-done').on('click', function () {
-
         toggleDone($(this));
     });
 
+    $('.todo-btn-remove').on('click', function () {
+        removeTodo($(this));
+    });
+
 });
-
-
-
 
 function renderTodoItem(todo) {
 
@@ -79,9 +79,22 @@ function filterTodoElements(e) {
     });
 }
 
+function removeTodo(elem) {
+    let todoItem = elem.closest('.todo-item');
+    let todoId = todoItem.find('.todo-value').attr('id')
 
-function removeTodo(todoId) {
-    todoItems = todoItems.filter(item => item.id !== Number(todoId));
+    deleteTodoAction(todoId)
+        .then(function(success) {
+            if (success) {
+                todoItem.remove();
+            } else {
+                console.error('Error while deleting element');
+            }
+        })
+        .catch(function(error) {
+            console.error('Server error:', error);
+        });
+
 }
 
 function toggleDone(elem) {
@@ -94,17 +107,13 @@ function toggleDone(elem) {
     } else {
         todoItem.addClass('completed');
     }
-    updateTodo(todoId, !isDone);
+    updateTodoAction(todoId, !isDone);
 
     // let index = todoItems.findIndex(item => item.id === Number(todoId));
     // todoItems[index].checked = !todoItems[index].checked;
 }
 
-function toJSON(array) {
-    return JSON.stringify(array);
-}
-
-function createTodo(label) {
+function createTodoAction(label) {
     $.ajax({
         url: '/todos',
         type: 'POST',
@@ -121,7 +130,7 @@ function createTodo(label) {
     });
 }
 
-function updateTodo(todoId, isDone) {
+function updateTodoAction(todoId, isDone) {
 
     $.ajax({
         type: 'PATCH',
@@ -134,5 +143,20 @@ function updateTodo(todoId, isDone) {
         error: function (error) {
             console.log('Error updating todo status:', error);
         }
+    });
+}
+
+function deleteTodoAction(todoId) {
+    return new Promise(function(resolve, reject) {
+        $.ajax({
+            type: 'DELETE',
+            url: '/todos/' + todoId,
+            success: function () {
+                resolve(true);
+            },
+            error: function () {
+                reject(false);
+            }
+        });
     });
 }
