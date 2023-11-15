@@ -43,7 +43,7 @@ class TodoController extends AbstractController
         return $this->json($element);
     }
 
-    #[Route('/', name: 'todos_get_collection', methods: ['GET'])]
+    #[Route(name: 'todos_get_collection', methods: ['GET'])]
     public function listAction(): Response
     {
         $todos = $this->service->getAll();
@@ -55,7 +55,7 @@ class TodoController extends AbstractController
         return $this->json($todos);
     }
 
-    #[Route('/', name: 'todos_create', methods: ['POST'])]
+    #[Route(name: 'todos_create', methods: ['POST'])]
     public function createAction(Request $request): Response
     {
         $requestData = json_decode($request->getContent());
