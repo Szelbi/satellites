@@ -4,16 +4,19 @@ namespace App\Entity;
 
 use App\Entity\Trait\PropertiesTrait;
 use App\Entity\Trait\IdTrait;
+use App\Entity\Trait\UpdatedAtTrait;
 use App\Enum\DateFormatEnum;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
 #[ORM\Table(name:"todos")]
 #[ORM\Entity]
+#[ORM\HasLifecycleCallbacks]
 class Todo implements EntityInterface, \JsonSerializable
 {
     use IdTrait;
     use PropertiesTrait;
+    use UpdatedAtTrait;
 
     #[ORM\Column(length: 255)]
     private ?string $label;
@@ -66,6 +69,7 @@ class Todo implements EntityInterface, \JsonSerializable
             'label' => $this->label,
             'isDone' => $this->isDone,
             'createdAt' => $this->createdAt->format(DateFormatEnum::DATE_TIME->value),
+            'updatedAt' => $this->updatedAt?->format(DateFormatEnum::DATE_TIME->value),
         ];
     }
 }
