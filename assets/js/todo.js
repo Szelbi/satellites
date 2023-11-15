@@ -1,9 +1,7 @@
 import $ from 'jquery';
 
-const todoInput = $(".todo-input");
 const todoList = $(".todo-list");
 let todoItems = [];
-
 
 $(function () {
     $('#todo-input-field').trigger('focus');
@@ -17,10 +15,9 @@ $(function () {
     $('.input-form').on("submit", function (event) {
         event.preventDefault();
 
-        let label = $('.todo-input').val().trim();
-        if (label !== '') {
-            createTodoAction(label);
-            $('.todo-input').val('');
+        const todoInput = $('.todo-input');
+        if (todoInput.val().trim() !== '') {
+            createTodoAction(todoInput);
         }
     });
 
@@ -125,7 +122,8 @@ function toggleDone(elem) {
     // todoItems[index].checked = !todoItems[index].checked;
 }
 
-function createTodoAction(label) {
+function createTodoAction(todoInput) {
+    const label = todoInput.val().trim();
     $.ajax({
         url: '/todos',
         type: 'POST',
@@ -133,6 +131,7 @@ function createTodoAction(label) {
         data: JSON.stringify({label: label, isDone: false}),
         success: function (data) {
             renderTodoItem(data);
+            todoInput.val('');
         },
         error: function (error) {
             let message = 'An error occurred while adding a new element.';
