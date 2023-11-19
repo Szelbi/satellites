@@ -9,7 +9,8 @@
 `docker-compose up -d`
 
 Within container:  
-`composer install`
+`composer install`  
+`php bin/install`  
 
 ---
 
