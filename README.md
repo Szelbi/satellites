@@ -21,3 +21,9 @@ App will be available at `localhost:8006`
 
 - Sass build - `php bin/console sass:build -w`
 - JS map rebuild - `php bin/console  importmap:update`
+
+---
+### TODO
+- logowanie(autoryzacja, sesja)
+- powiadomienia do todo
+- panel użytkownika
