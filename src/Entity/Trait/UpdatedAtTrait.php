@@ -7,7 +7,7 @@ use DateTime;
 
 trait UpdatedAtTrait
 {
-    #[ORM\Column(name: "updated_at", type: "datetime", nullable: false)]
+    #[ORM\Column(name: "updated_at", type: "datetime", nullable: true)]
     private ?DateTime $updatedAt = null;
 
     public function getUpdatedAt(): ?DateTime
