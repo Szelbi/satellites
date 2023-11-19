@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\PositionTrait;
 use App\Entity\Trait\PropertiesTrait;
 use App\Entity\Trait\IdTrait;
-use App\Entity\Trait\UpdatedAtTrait;
+use App\Entity\Trait\TimestampableEntityTrait;
 use App\Enum\DateFormatEnum;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 
 #[ORM\Table(name:"todos")]
 #[ORM\Entity]
@@ -16,21 +16,13 @@ class Todo implements EntityInterface, \JsonSerializable
 {
     use IdTrait;
     use PropertiesTrait;
-    use UpdatedAtTrait;
+    use TimestampableEntityTrait;
 
     #[ORM\Column(length: 255)]
-    private ?string $label;
+    private string $label;
 
     #[ORM\Column(options: ["default" => false])]
     private bool $isDone = false;
-
-    #[ORM\Column(options: ["default" => "CURRENT_TIMESTAMP"])]
-    private DateTime $createdAt;
-
-    public function __construct()
-    {
-        $this->createdAt = new DateTime();
-    }
 
     public function getLabel(): ?string
     {
@@ -50,11 +42,6 @@ class Todo implements EntityInterface, \JsonSerializable
     public function setIsDone(bool $isDone): void
     {
         $this->isDone = $isDone;
-    }
-
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
     }
 
     public function __toString(): string
