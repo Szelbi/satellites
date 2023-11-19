@@ -17,6 +17,7 @@ class Todo implements EntityInterface, \JsonSerializable
     use IdTrait;
     use PropertiesTrait;
     use TimestampableEntityTrait;
+    use PositionTrait;
 
     #[ORM\Column(length: 255)]
     private string $label;
@@ -55,6 +56,7 @@ class Todo implements EntityInterface, \JsonSerializable
             'id' => $this->id,
             'label' => $this->label,
             'isDone' => $this->isDone,
+            'position' => $this->position,
             'createdAt' => $this->createdAt->format(DateFormatEnum::DATE_TIME->value),
             'updatedAt' => $this->updatedAt?->format(DateFormatEnum::DATE_TIME->value),
         ];
