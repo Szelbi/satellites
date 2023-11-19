@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class TodoType extends AbstractType
@@ -17,7 +18,7 @@ class TodoType extends AbstractType
         $builder
             ->add('label', TextType::class, [
                 'required' => true,
-                'constraints' => [new NotNull()]
+                'constraints' => [new NotNull(), new Length(null, 3, 100)]
             ])
             ->add('isDone', CheckboxType::class, [
                 'required' => true,

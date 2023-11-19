@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Todo;
+use App\Form\TodoDto;
 use App\Form\TodoType;
 use App\Form\Trait\FormHandleTrait;
 use App\Service\TodoService;
@@ -10,7 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -56,21 +57,19 @@ class TodoController extends AbstractController
     }
 
     #[Route(name: 'todos_create', methods: ['POST'])]
-    public function createAction(Request $request): Response
+    public function createAction(
+        Request $request,
+    ): Response
     {
-        $requestData = json_decode($request->getContent());
+        $form = $this->createForm(TodoType::class);
 
-        if (!isset($requestData->label) || !isset($requestData->isDone)) {
-            throw new BadRequestHttpException('Wrong JSON data');
+        if (!$this->handleForm($form, $request)) {
+            return $this->json($this->formErrors, $this->responseStatus);
         }
 
-        $todo = new Todo();
-        $todo->setLabel($requestData->label);
-        $todo->setIsDone($requestData->isDone);
+        $this->service->transactionalMake($form->getData());
 
-        $this->service->transactionalMake($todo);
-
-        return $this->json($todo);
+        return $this->json($form->getData());
     }
 
     #[Route('/{id}', name: 'todos_update', methods: ['PATCH'])]
@@ -84,8 +83,8 @@ class TodoController extends AbstractController
 
         $form = $this->createForm(TodoType::class, $todo);
 
-        if (!$this->handleForm($form, $request)) {
-            return $this->json(['errors' => $this->getErrorsFromForm($form)], 400);
+        if (!$this->handleForm($form, $request, true)) {
+            return $this->json($this->formErrors, $this->responseStatus);
         }
 
         $entityManager->flush();
