@@ -7,27 +7,25 @@ use Symfony\Component\HttpFoundation\Request;
 
 trait FormHandleTrait
 {
+    public array $formErrors = [];
+
     public function handleForm(FormInterface $form, Request $request): bool
     {
         $form->submit(json_decode($request->getContent(), true), false);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
+            $this->collectErrorsFromForm($form);
             return false;
         }
 
         return true;
     }
 
-    private function getErrorsFromForm($form): array
+    public function collectErrorsFromForm(FormInterface $form): void
     {
-        $errors = array();
-
-        foreach ($form as $child) {
-            foreach ($child->getErrors() as $error) {
-                $errors[$child->getName()] = $error->getMessage();
-            }
+        foreach ($form->getErrors(true) as $error) {
+            $origin = $error->getOrigin();
+            $this->formErrors[$origin->getName()][] = $error->getMessage();
         }
-
-        return $errors;
     }
 }
