@@ -34,4 +34,20 @@ class UserService
         $this->userRepository->save($newUser, true);
         return true;
     }
+
+    public function grantRole(string $email, string $role): bool
+    {
+        $user = $this->userRepository->findOneByEmail($email);
+        if (!$user) {
+            return false;
+        }
+
+        $roles = $user->getRoles();
+        $roles[] = $role;
+        $user->setRoles(\array_unique($roles));
+
+        $this->userRepository->save($user, true);
+
+        return true;
+    }
 }
