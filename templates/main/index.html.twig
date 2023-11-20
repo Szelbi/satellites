@@ -10,9 +10,6 @@
         </div>
 
         <div class="endpoints-container">
-            <div class="header">
-                <h5>Available pages:</h5>
-            </div>
             <div class="endpoints-container-list">
                 {% for key, value in routes %}
                     <a href="{{ path(key) }}" class="button">{{ value }}</a>

@@ -83,6 +83,38 @@ a {
     text-shadow: 2px 2px 6px #6669;
 }
 
+.page-header-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: rgba($footerColor, 0.75);
+    padding: 5px 15px;
+    height: 60px;
+
+    img {
+        max-height: 100%;
+        width: auto;
+        opacity: 0.75;
+    }
+
+    .header-logged {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        a {
+            text-align: end;
+        }
+    }
+}
+.page-header-gradient {
+    width: 100%;
+    height: 20px;
+    //background: $footerColor;
+    //opacity: 0.75;
+    background: linear-gradient(to bottom, rgba($footerColor, 0.70) 20%, rgba($footerColor, 0));
+    //background: linear-gradient(to bottom, green 75%, red);
+}
+
 #lucky-number {
     font-size: 5rem;
     font-weight: bold;
