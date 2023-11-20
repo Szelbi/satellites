@@ -1,6 +1,8 @@
 <header>
     <div class="page-header-bar">
-        <img class="page-header-logo" src="{{ asset('images/logo.png') }}" alt="Logo">
+        <a href="{{ path('main_page') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo">
+        </a>
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="header-logged">
