@@ -3,12 +3,11 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="satellite-container container">
-
+    <div class="container">
         <div class="header">
             <h2>Register</h2>
         </div>
-            {{ form_errors(registrationForm) }}
+        {{ form_errors(registrationForm) }}
 
         <div class="register-form">
         {{ form_start(registrationForm) }}

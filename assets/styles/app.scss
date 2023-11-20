@@ -129,7 +129,8 @@ a {
     }
 }
 
-.register-form {
+.register-form,
+.login-form {
     form {
         font-size: smaller;
         color: $primaryFontColor;
@@ -180,6 +181,9 @@ a {
                 cursor: pointer;
             }
         }
-
+        .form-error {
+            color:red;
+            display: flex;
+        }
     }
 }
