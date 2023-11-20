@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\IdTrait;
+use App\Entity\Trait\TimestampableEntityTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -11,36 +12,30 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Table('users')]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     use IdTrait;
+    use TimestampableEntityTrait;
 
-    #[ORM\Column(length: 180, unique: true)]
-    private ?string $username = null;
+    #[ORM\Column(length: 255, options: ["default" => null])]
+    private ?string $email = null;
 
-    #[ORM\Column]
-    private array $roles = [];
+    #[ORM\Column(type: "json", nullable: true)]
+    private ?array $roles = ['ROLE_USER'];
 
-    #[ORM\Column]
-    private string $email;
-
-    /**
-     * @var string The hashed password
-     */
-    #[ORM\Column]
+    #[ORM\Column(length: 255, options: ["default" => null])]
     private ?string $password = null;
 
-    public function getUsername(): ?string
+
+    public function getEmail(): ?string
     {
-        return $this->username;
+        return $this->email;
     }
 
-    public function setUsername(string $username): static
+    public function setEmail(?string $email): void
     {
-        $this->username = $username;
-
-        return $this;
+        $this->email = $email;
     }
 
     /**
@@ -48,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->username;
+        return (string) $this->email;
     }
 
     /**
@@ -84,16 +79,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
     /**
      * @see UserInterface
      */
@@ -101,5 +86,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function __toString(): string
+    {
+        return \sprintf(
+            '#%d %s',
+            $this->id,
+            $this->email
+        );
     }
 }
