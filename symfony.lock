@@ -171,6 +171,9 @@
     "symfonycasts/sass-bundle": {
         "version": "v0.2.3"
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.14.0"
+    },
     "twig/extra-bundle": {
         "version": "v3.7.1"
     }
