@@ -1,8 +1,7 @@
 <footer class="footer">
 
     <div class="waves">
-        {% set wave = concat('abc', asset('images/wave.png')) %}
-        {{ wave }}
+        {% set wave = asset('images/wave.png') %}
         <div class="wave" id="wave1" style="background-image: url({{ wave }})"></div>
         <div class="wave" id="wave2" style="background-image: url({{ wave }})"></div>
         <div class="wave" id="wave3" style="background-image: url({{ wave }})"></div>
