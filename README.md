@@ -26,6 +26,7 @@ App will be available at `localhost:8006`
 
 ---
 ### TODO
+- uprawnienia do folderów projektu (www-data)
 - logowanie(autoryzacja, sesja)
 - powiadomienia do todo
 - panel użytkownika
