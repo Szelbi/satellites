@@ -11,6 +11,7 @@
 Within container:  
 `composer install`  
 `php bin/install`  
+`php bin/console sass:build`  
 
 ---
 
@@ -20,7 +21,7 @@ App will be available at `localhost:8006`
 
 ---
 
-- Sass build - `php bin/console sass:build -w`
+- Sass build with "watch" - `php bin/console sass:build -w`
 - JS map rebuild - `php bin/console  importmap:update`
 
 ---

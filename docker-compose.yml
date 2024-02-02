@@ -6,26 +6,28 @@ services:
       context: ./
       dockerfile: docker/Dockerfile
     container_name: satellites-app
-    image: php-custom:8.2-fpm
     restart: always
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+      - ./docker/apache/vhosts:/etc/apache2/sites-enabled
       - /etc/localtime:/etc/localtime:ro
     networks:
       - satellite-network
-
-  nginx:
-    image: nginx:1.19-alpine
-    container_name: satellites-nginx
-    restart: always
     ports:
-      - 8006:86
-    volumes:
-      - ./:/var/www/html
-      - ./docker/nginx:/etc/nginx/conf.d
-    networks:
-      - satellite-network
+      - "8080:80"
+
+#  nginx:
+#    image: nginx:1.19-alpine
+#    container_name: satellites-nginx
+#    restart: always
+#    ports:
+#      - 8006:86
+#    volumes:
+#      - ./:/var/www/html
+#      - ./docker/nginx:/etc/nginx/conf.d
+#    networks:
+#      - satellite-network
 
 networks:
   satellite-network:
