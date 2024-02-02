@@ -10,7 +10,7 @@ services:
       - --innodb-buffer-pool-size=1G
     environment:
       MYSQL_ROOT_PASSWORD: toor
-      MYSQL_DATABASE: ety
+      MYSQL_DATABASE: satellites
       MYSQL_USER: user
       MYSQL_PASSWORD: test
     ports:
