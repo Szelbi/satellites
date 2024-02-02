@@ -15,7 +15,7 @@ Within container:
 
 ---
 
-App will be available at `localhost:8006`
+App will be available at `localhost:8080`
 
 
 
