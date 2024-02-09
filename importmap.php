@@ -22,6 +22,10 @@ return [
         'path' => 'js/satellites.js',
         'preload' => true,
     ],
+    'lucky_number' => [
+        'path' => 'js/lucky_number.js',
+        'preload' => true,
+    ],
     'todo' => [
         'path' => 'js/todo.js',
         'preload' => true,
