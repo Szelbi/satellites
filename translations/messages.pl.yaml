@@ -1,0 +1,11 @@
+main:
+  attribute: Cecha
+  value: Wartość
+weather:
+  temperature: Temperatura
+  feels_like: Odczuwalna
+  wind_speed: Prędkość wiatru
+  wind_direction: Kierunek wiatru
+  condition: Warunki
+  humidity: Wilgotność
+  pressure: Ciśnienie

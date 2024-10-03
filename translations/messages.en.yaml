@@ -1,0 +1,11 @@
+main:
+  attribute: Attribute
+  value: Value
+weather:
+  temperature: "Temperature"
+  feels_like: "Feels Like"
+  wind_speed: "Wind Speed"
+  wind_direction: "Wind Direction"
+  condition: "Condition"
+  humidity: "Humidity"
+  pressure: "Pressure"

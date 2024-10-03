@@ -15,40 +15,40 @@
             <p>Last updated: <span id="last-updated">{{ weatherData.lastUpdated }}</span></p>
         </div>
 
-        <table class="weather-table table-dark">
+        <table class="weather-table  table-dark">
             <thead>
             <tr>
-                <th>Attribute</th>
-                <th>Value</th>
+                <th>{{ 'main.attribute'|trans }}</th>
+                <th>{{ 'main.value'|trans }}</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>Temperature (°C)</td>
+                <td>{{ 'weather.temperature'|trans }}</td>
                 <td id="temperature" data-key="temperatureC">{{ weatherData.temperatureC }}</td>
             </tr>
             <tr>
-                <td>Feels Like (°C)</td>
+                <td>{{ 'weather.feels_like'|trans }}</td>
                 <td id="feels-like" data-key="feelsLikeC">{{ weatherData.feelsLikeC }}</td>
             </tr>
             <tr>
-                <td>Wind Speed (kph)</td>
+                <td>{{ 'weather.wind_speed'|trans }}</td>
                 <td id="wind-speed" data-key="windSpeedKph">{{ weatherData.windSpeedKph }}</td>
             </tr>
             <tr>
-                <td>Wind Direction</td>
+                <td>{{ 'weather.wind_direction'|trans }}</td>
                 <td id="wind-direction" data-key="windDirection">{{ weatherData.windDirection }}</td>
             </tr>
             <tr>
-                <td>Condition</td>
+                <td>{{ 'weather.condition'|trans }}</td>
                 <td id="condition" data-key="conditionText">{{ weatherData.conditionText }}</td>
             </tr>
             <tr>
-                <td>Humidity (%)</td>
+                <td>{{ 'weather.humidity'|trans }}</td>
                 <td id="humidity" data-key="humidity">{{ weatherData.humidity }}</td>
             </tr>
             <tr>
-                <td>Pressure (mb)</td>
+                <td>{{ 'weather.pressure'|trans }}</td>
                 <td id="pressure" data-key="pressureMb">{{ weatherData.pressureMb }}</td>
             </tr>
             </tbody>
