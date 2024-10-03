@@ -4,3 +4,4 @@ symfonycasts_sass:
       - '%kernel.project_dir%/assets/styles/todo.scss'
       - '%kernel.project_dir%/assets/styles/footer.scss'
       - '%kernel.project_dir%/assets/styles/lucky.scss'
+      - '%kernel.project_dir%/assets/styles/weather.scss'

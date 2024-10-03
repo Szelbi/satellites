@@ -3,7 +3,7 @@
 {% block title %}Weather conditions{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/lucky.scss') }}">
+    <link rel="stylesheet" href="{{ asset('styles/weather.scss') }}">
 {% endblock %}
 
 {% block body %}
@@ -15,7 +15,7 @@
             <p>Last updated: <span id="last-updated">{{ weatherData.lastUpdated }}</span></p>
         </div>
 
-        <table class="table">
+        <table class="weather-table table-dark">
             <thead>
             <tr>
                 <th>Attribute</th>
@@ -54,7 +54,7 @@
             </tbody>
         </table>
 
-        <button class="btn-spinner" id="btn-spinner">
+        <button class="btn-spinner" id="btn-reloader">
             <img class="icon-spinner" id="spinner-icon" src="{{ asset('images/refresh.svg') }}" alt="spinner">
         </button>
     </div>
@@ -65,9 +65,8 @@
     {{ importmap('lucky_number') }}
 
     <script>
-        const btnSpinner = document.getElementById('btn-spinner');
-        console.log(btnSpinner);
-        document.getElementById('btn-spinner').addEventListener('click', function() {
+        const btnSpinner = document.getElementById('btn-reloader');
+        document.getElementById('btn-reloader').addEventListener('click', function() {
             fetch('{{ path('weather_update') }}')
                 .then(response => response.json())
                 .then(data => {
