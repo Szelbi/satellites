@@ -13,7 +13,7 @@ class WeatherController extends AbstractController
     #[Route('/weather/index', name: 'weather_index')]
     public function index(WeatherApiService $service): Response
     {
-        $weatherData = $service->getWeatherDataForCity('Tychy');
+        $weatherData = $service->getWeatherDataForCity('Tychy', isCurl: true);
 
         return $this->render('weather/weather.html.twig', [
             'weatherData' => $weatherData,
