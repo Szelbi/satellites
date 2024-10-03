@@ -8,10 +8,10 @@
 
 `docker-compose up -d`
 
-Within container:  
-`composer install`  
-`php bin/install`  
-`php bin/console sass:build`  
+Within container:
+`composer install`
+`bin/install`
+`bin/update`
 
 ---
 
