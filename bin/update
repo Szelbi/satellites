@@ -1,5 +1,5 @@
 #!/bin/bash
 
-php bin/console sass:build
+php bin/console sass:build -q
 
 echo "css built"
