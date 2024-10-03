@@ -26,6 +26,7 @@ App will be available at `localhost:8080`
 
 ---
 ### TODO
+- wybór języka (+ tłumaczenia całej strony)
 - uprawnienia do folderów projektu (www-data)
 - zmienić użytkownika na kontenerze z root na system
 - logowanie(autoryzacja, sesja)
