@@ -8,10 +8,6 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
     {% endblock %}
-
-    {% block javascripts %}
-        {{ importmap('app') }}
-    {% endblock %}
 </head>
 <body>
 
@@ -26,6 +22,10 @@
 {% endblock %}
 
 {% include('footer.html.twig') %}
+
+{% block javascripts %}
+    {{ importmap('app') }}
+{% endblock %}
 
 </body>
 </html>

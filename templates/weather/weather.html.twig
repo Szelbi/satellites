@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Weather conditions{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/lucky.scss') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="header">
+            <h2>Weather conditions for {{ weatherData.city }}, {{ weatherData.country }}</h2>
+            <p>Request time: <span id="request-time">{{ requestTime }}</span></p>
+            <p>Last updated: <span id="last-updated">{{ weatherData.lastUpdated }}</span></p>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Temperature (°C)</td>
+                <td id="temperature" data-key="temperatureC">{{ weatherData.temperatureC }}</td>
+            </tr>
+            <tr>
+                <td>Feels Like (°C)</td>
+                <td id="feels-like" data-key="feelsLikeC">{{ weatherData.feelsLikeC }}</td>
+            </tr>
+            <tr>
+                <td>Wind Speed (kph)</td>
+                <td id="wind-speed" data-key="windSpeedKph">{{ weatherData.windSpeedKph }}</td>
+            </tr>
+            <tr>
+                <td>Wind Direction</td>
+                <td id="wind-direction" data-key="windDirection">{{ weatherData.windDirection }}</td>
+            </tr>
+            <tr>
+                <td>Condition</td>
+                <td id="condition" data-key="conditionText">{{ weatherData.conditionText }}</td>
+            </tr>
+            <tr>
+                <td>Humidity (%)</td>
+                <td id="humidity" data-key="humidity">{{ weatherData.humidity }}</td>
+            </tr>
+            <tr>
+                <td>Pressure (mb)</td>
+                <td id="pressure" data-key="pressureMb">{{ weatherData.pressureMb }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button class="btn-spinner" id="btn-spinner">
+            <img class="icon-spinner" id="spinner-icon" src="{{ asset('images/refresh.svg') }}" alt="spinner">
+        </button>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ importmap('lucky_number') }}
+
+    <script>
+        const btnSpinner = document.getElementById('btn-spinner');
+        console.log(btnSpinner);
+        document.getElementById('btn-spinner').addEventListener('click', function() {
+            fetch('{{ path('weather_update') }}')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll('tbody td[data-key]').forEach(cell => {
+                        cell.textContent = data[cell.getAttribute('data-key')];
+                    });
+                    document.getElementById('last-updated').textContent = data.lastUpdated;
+                    document.getElementById('request-time').textContent = data.requestTime;
+                })
+                .catch(error => console.error('Error fetching weather data:', error));
+        });
+    </script>
+{% endblock %}
