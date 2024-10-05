@@ -1,23 +1,16 @@
-### Satellites project build on PHP 8.2 and Symfony 6.3
+### Satellites project build on PHP 8.3 and Symfony 6.3
 
 ## Requirements
 - docker
 
 ## Installation
-
-`docker compose up -d`
-
-Within container:  
-`composer install`  
-`bin/install`  
-`bin/update`  
-
-Get your Weather API Key from https://www.weatherapi.com and add it to `.env.local.php`
+1. On host: `docker compose up -d`
+2. Enter container and run `bin/install`  
+3. [optional] Get your Weather API Key from https://www.weatherapi.com and add it to `.env.local.php`
 
 ---
 
 App will be available at `localhost:8080`
-
 
 ---
 
