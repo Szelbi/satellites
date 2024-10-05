@@ -14,26 +14,26 @@
         "doctrine/doctrine-bundle": "*",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "*",
-        "symfony/asset": "6.3.*",
-        "symfony/asset-mapper": "6.3.*",
-        "symfony/console": "6.3.*",
-        "symfony/dotenv": "6.3.*",
+        "symfony/asset": "6.4.*",
+        "symfony/asset-mapper": "6.4.*",
+        "symfony/console": "6.4.*",
+        "symfony/dotenv": "6.4.*",
         "symfony/flex": "^2",
-        "symfony/form": "6.3.*",
-        "symfony/framework-bundle": "6.3.*",
-        "symfony/http-client": "6.3.*",
+        "symfony/form": "6.4.*",
+        "symfony/framework-bundle": "6.4.*",
+        "symfony/http-client": "6.4.*",
         "symfony/monolog-bundle": "^3.8",
-        "symfony/runtime": "6.3.*",
-        "symfony/security-bundle": "6.3.*",
-        "symfony/serializer": "6.3.*",
-        "symfony/translation": "6.3.*",
-        "symfony/twig-bundle": "6.3.*",
-        "symfony/validator": "6.3.*",
-        "symfony/yaml": "6.3.*",
+        "symfony/runtime": "6.4.*",
+        "symfony/security-bundle": "6.4.*",
+        "symfony/serializer": "6.4.*",
+        "symfony/translation": "6.4.*",
+        "symfony/twig-bundle": "6.4.*",
+        "symfony/validator": "6.4.*",
+        "symfony/yaml": "6.4.*",
         "symfonycasts/sass-bundle": "^0.2.3",
         "symfonycasts/verify-email-bundle": "^1.14",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/extra-bundle": "^3.0",
+        "twig/twig": "^3.0"
     },
     "config": {
         "allow-plugins": {
@@ -80,12 +80,12 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.3.*"
+            "require": "6.4.*"
         }
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.51",
-        "symfony/stopwatch": "6.3.*",
-        "symfony/web-profiler-bundle": "6.3.*"
+        "symfony/maker-bundle": "^1.5",
+        "symfony/stopwatch": "6.4.*",
+        "symfony/web-profiler-bundle": "6.4.*"
     }
 }
