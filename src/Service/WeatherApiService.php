@@ -5,18 +5,17 @@ namespace App\Service;
 
 use App\Dto\WeatherApiResponseDto;
 use Symfony\Component\HttpClient\Exception\ClientException;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 readonly class WeatherApiService
 {
-    private const URL = 'https://api.weatherapi.com/v1/current.json';
 
     public function __construct(
         private HttpClientInterface $client,
         private string $weatherApiKey,
+        private string $weatherApiUrl,
     ) {
     }
 
@@ -56,7 +55,7 @@ readonly class WeatherApiService
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => self::URL . "?key=$apiKey&q=$city&aqi=no",
+            CURLOPT_URL => $this->weatherApiUrl . "?key=$apiKey&q=$city&aqi=no",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_TIMEOUT => 5,
@@ -81,7 +80,7 @@ readonly class WeatherApiService
     public function getFromSymfonyClient(string $city): array
     {
         try {
-            $response = $this->client->request('GET', self::URL, [
+            $response = $this->client->request(Request::METHOD_GET, $this->weatherApiUrl, [
                 'query' => [
                     'key' => $this->weatherApiKey,
                     'q' => $city,
