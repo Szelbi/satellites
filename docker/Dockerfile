@@ -1,9 +1,9 @@
 # docker build -t php-fpm-image:dev .
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 WORKDIR /var/www/html
 
-LABEL name="php82-apache image"
+LABEL name="php83-apache image"
 
 RUN apt-get update
 RUN apt-get install -y git curl zip unzip vim nano htop wget mc iputils-ping libicu-dev sudo
