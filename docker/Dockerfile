@@ -14,20 +14,34 @@ RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
 RUN a2enmod rewrite
 
-### COMPOSER
+# Define a build argument
+ARG USER_NAME=system
+
+### Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-## INSTALL Symfony CLI
+## Install Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
-## COPY FILES
-RUN rm /root/.bashrc
-ADD docker/copy_files/.bashrc /root/.bashrc
-ADD docker/copy_files/.bash_aliases /root/.bash_aliases
+## create new user
+RUN useradd -m -s /bin/bash $USER_NAME && \
+    usermod -aG sudo $USER_NAME
 
-# Dodanie konfiguracji VirtualHost dla Apache
+# Allow user to run sudo without a password
+RUN echo "$USER_NAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Copy files
+RUN rm /home/$USER_NAME/.bashrc
+ADD docker/copy_files/.bashrc /home/$USER_NAME/.bashrc
+ADD docker/copy_files/.bash_aliases /home/$USER_NAME/.bash_aliases
+
+# Optional(?) VirtualHost configuration for Apache
 #COPY docker-apache/apache-config.conf /etc/apache2/sites-available/000-default.conf
-#
-## Ustawienie uprawnień
-RUN #chown -R www-data:www-data /var/www/html
+
+# Set permissions for the working directory
+RUN chown -R $USER_NAME:$USER_NAME /var/www/html
+RUN chown -R $USER_NAME:$USER_NAME /home/system
+
+# Switch to the new user
+USER $USER_NAME
