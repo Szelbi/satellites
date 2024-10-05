@@ -3,3 +3,5 @@
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:update -f
 php bin/console doctrine:migrations:migrate -n
+
+composer dump-env dev

@@ -2,21 +2,21 @@
 
 ## Requirements
 - docker
-- docker-compose
 
 ## Installation
 
-`docker-compose up -d`
+`docker compose up -d`
 
-Within container:
-`composer install`
-`bin/install`
-`bin/update`
+Within container:  
+`composer install`  
+`bin/install`  
+`bin/update`  
+
+Get your Weather API Key from https://www.weatherapi.com and add it to `.env.local.php`
 
 ---
 
 App will be available at `localhost:8080`
-
 
 
 ---
