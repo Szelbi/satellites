@@ -15,7 +15,7 @@ services:
       - ./docker/apache/vhosts:/etc/apache2/sites-enabled
       - /etc/localtime:/etc/localtime:ro
     networks:
-      - satellite-network
+      - workbench-network
     ports:
       - "8001:80"
 
@@ -33,7 +33,7 @@ services:
     ports:
       - '3301:3306'
     networks:
-      - satellite-network
+      - workbench-network
 
 #  nginx:
 #    image: nginx:1.19-alpine
@@ -48,6 +48,6 @@ services:
 #      - satellite-network
 
 networks:
-  satellite-network:
+  workbench-network:
     name: docker_default
     external: true

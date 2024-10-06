@@ -1,4 +1,4 @@
-### Satellites project build on PHP 8.3 and Symfony 6.3
+### Workbench project build on PHP 8.3 and Symfony 6.3
 
 ## Requirements
 - docker

@@ -1,7 +1,7 @@
 {
     "type": "project",
-    "name": "project/satellites",
-    "description": "satellites",
+    "name": "project/workbench",
+    "description": "workbench",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
