@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -38,8 +39,9 @@ class UserService
     public function grantRole(string $email, string $role): bool
     {
         $user = $this->userRepository->findOneByEmail($email);
+
         if (!$user) {
-            return false;
+            throw new EntityNotFoundException(sprintf('User with email %s not found.', $email));
         }
 
         $roles = $user->getRoles();
