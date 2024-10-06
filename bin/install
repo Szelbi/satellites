@@ -3,6 +3,9 @@
 composer install
 composer dump-env dev
 
-php bin/console doctrine:database:create
+php bin/console doctrine:database:create --if-not-exists
 php bin/console doctrine:schema:update -f
 php bin/console doctrine:migrations:migrate -n
+
+php bin/console app:create-use admin@mail.com admin
+php bin/console app:grant-role admin@mail.com ROLE_ADMIN
