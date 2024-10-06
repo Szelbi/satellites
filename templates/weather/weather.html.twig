@@ -61,9 +61,11 @@
 
 {% endblock %}
 
-{% block javascripts %}
+{% block importmap %}
     {{ importmap('lucky_number') }}
+{% endblock %}
 
+{% block javascripts %}
     <script>
         const btnSpinner = document.getElementById('btn-reloader');
         document.getElementById('btn-reloader').addEventListener('click', function() {

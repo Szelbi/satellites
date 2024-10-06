@@ -24,7 +24,9 @@
 {% include('footer.html.twig') %}
 
 {% block javascripts %}
-    {{ importmap('app') }}
+    {% block importmap %}
+        {{ importmap('app') }}
+    {% endblock %}
 {% endblock %}
 
 </body>
