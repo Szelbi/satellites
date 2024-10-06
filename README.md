@@ -10,7 +10,7 @@
 
 ---
 
-App will be available at `localhost:8080`
+App will be available at `localhost:8001`
 
 ---
 

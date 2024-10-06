@@ -5,8 +5,10 @@ services:
     build:
       context: ./
       dockerfile: docker/Dockerfile
-    container_name: satellites-app
+    container_name: workbench-app
     restart: always
+    depends_on:
+      - db
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
@@ -15,7 +17,23 @@ services:
     networks:
       - satellite-network
     ports:
-      - "8080:80"
+      - "8001:80"
+
+  db:
+    image: mysql:9
+    restart: always
+    container_name: workbench-mysql
+    command:
+      - --innodb-buffer-pool-size=512M
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: workbench
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+    ports:
+      - '3301:3306'
+    networks:
+      - satellite-network
 
 #  nginx:
 #    image: nginx:1.19-alpine
