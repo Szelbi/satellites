@@ -8,9 +8,9 @@
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
+        "ext-curl": "*",
         "ext-iconv": "*",
         "ext-intl": "*",
-        "ext-curl": "*",
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.1",
@@ -32,6 +32,7 @@
         "symfony/yaml": "^7",
         "symfonycasts/sass-bundle": "^0.7",
         "symfonycasts/verify-email-bundle": "^1.14",
+        "twbs/bootstrap": "^5.3",
         "twig/extra-bundle": "^3.0",
         "twig/twig": "^3.0"
     },
