@@ -1,32 +1,33 @@
 {% block header %}
     <header>
-        <nav class="page-header-bar navbar fixed-top navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
             <div class="container">
-                <div class="nav-item">
-                    <a class="nav-link" href="{{ path('main_page') }}">
-                        <img class="navbar-logo-img" src="{{ asset('images/logo.png') }}" alt="Logo">
-                        Szelbi's Workspace
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="{{ path('main_page') }}">
-                        Choose language
-                    </a>
-                </div>
+                <a class="navbar-brand" href="{{ path('main_page') }}">
+{#                   <img class="navbar-logo-img" src="{{ asset('images/logo.png') }}" alt="Logo">#}
+                    Szelbi's Workspace
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <div class="nav-item header-logged">
-                        <p>Logged: {{ app.user.email }}</p>
-                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
-                    </div>
-                {% else %}
-                    <div class="nav-item header-not-logged">
-                        <a class="nav-link" href="{{ path('app_login_index') }}">Log in</a>
-                    </div>
-                {% endif %}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('main_page') }}">Choose language</a>
+                        </li>
+
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_logout') }}">Logout ({{ app.user.email }})</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login_index') }}">Log in</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </nav>
-        <div class="page-header-gradient"></div>
-
     </header>
 {% endblock %}
