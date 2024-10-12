@@ -1,5 +1,4 @@
 @import "variables";
-@import "footer";
 @import "todo";
 
 @import "../../vendor/twbs/bootstrap/scss/bootstrap.scss";
@@ -82,47 +81,6 @@ a p {
             font-size: 2rem;
             text-align: center;
             text-shadow: 2px 2px 6px #6669;
-        }
-    }
-}
-
-header {
-    .navbar {
-        --bs-navbar-padding-y: 1rem;
-        width: 100%;
-        margin-bottom: var(--navbar-margin-bottom);
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .nav-item {
-                margin-left: 30px;
-
-                .nav-link {
-                    padding: 0.5rem;
-                    font-size: 20px;
-                    color: $navFontColor;
-                    border: #f8f8f2 dot-dash ;
-
-                    .navbar-logo-img {
-                        max-height: 100%;
-                        width: auto;
-                        opacity: 0.75;
-                    }
-                }
-            }
-
-            .header-logged {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-
-                a {
-                    text-align: end;
-                }
-            }
         }
     }
 }
