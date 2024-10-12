@@ -1,20 +1,32 @@
-<header>
-    <div class="page-header-bar">
-        <a href="{{ path('main_page') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo">
-        </a>
+{% block header %}
+    <header>
+        <nav class="page-header-bar navbar fixed-top navbar-dark bg-primary">
+            <div class="container">
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ path('main_page') }}">
+                        <img class="navbar-logo-img" src="{{ asset('images/logo.png') }}" alt="Logo">
+                        Szelbi's Workspace
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="{{ path('main_page') }}">
+                        Choose language
+                    </a>
+                </div>
 
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div class="header-logged">
-                <p>Logged: {{ app.user.email }}</p>
-                <a href="{{ path('app_logout') }}">Logout</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div class="nav-item header-logged">
+                        <p>Logged: {{ app.user.email }}</p>
+                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% else %}
+                    <div class="nav-item header-not-logged">
+                        <a class="nav-link" href="{{ path('app_login_index') }}">Log in</a>
+                    </div>
+                {% endif %}
             </div>
-        {% else %}
-            <div class="header-not-logged">
-                <a href="{{ path('app_login_index') }}">Log in</a>
-            </div>
-        {% endif %}
-    </div>
-    <div class="page-header-gradient"></div>
+        </nav>
+        <div class="page-header-gradient"></div>
 
-</header>
+    </header>
+{% endblock %}

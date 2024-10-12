@@ -14,7 +14,7 @@ body {
     font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
     min-height: 100vh;
     color: $headingFontColor;
 
@@ -65,53 +65,67 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.container {
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-}
-
-.header {
-    margin: 2rem 0;
-    font-size: 2rem;
-    text-align: center;
-    text-shadow: 2px 2px 6px #6669;
-}
-
-.page-header-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background: rgba($footerColor, 0.75);
-    padding: 8px 20px 2px 20px;
-    height: 60px;
-
-    img {
-        max-height: 100%;
-        width: auto;
-        opacity: 0.75;
-    }
-
-    .header-logged {
+    .container {
+        padding: 1rem;
         display: flex;
+        justify-content: center;
+        text-align: center;
         flex-direction: column;
-        justify-content: space-around;
-        a {
-            text-align: end;
+
+        .page-header {
+            margin: 2rem 0;
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 6px #6669;
         }
     }
 }
-.page-header-gradient {
-    width: 100%;
-    height: 20px;
-    //background: $footerColor;
-    //opacity: 0.75;
-    background: linear-gradient(to bottom, rgba($footerColor, 0.70) 20%, rgba($footerColor, 0));
-    //background: linear-gradient(to bottom, green 75%, red);
+
+header {
+    .navbar {
+        width: 100%;
+
+        .container {
+            display: flex;
+            //flex-wrap: inherit;
+            align-items: center;
+            justify-content: space-between;
+
+            .nav-item {
+                margin-left: 20px;
+
+                .nav-link {
+                    padding: 0.5rem 0;
+                    font-size: 20px;
+                    color: $navFontColor;
+
+                    .navbar-logo-img {
+                        max-height: 100%;
+                        width: auto;
+                        opacity: 0.75;
+                    }
+                }
+            }
+
+            .header-logged {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                a {
+                    text-align: end;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.bg-primary {
+    background-color: rgba($primaryBgColor, $navBgOpacity); // ???
 }
 
 #lucky-number {
@@ -140,7 +154,6 @@ a {
         }
     }
 }
-
 
 .satellite-table-container {
     display: flex;
