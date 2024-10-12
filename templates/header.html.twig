@@ -6,23 +6,20 @@
 {#                   <img class="navbar-logo-img" src="{{ asset('images/logo.png') }}" alt="Logo">#}
                     Szelbi's Workspace
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('main_page') }}">Choose language</a>
+                            <a class="nav-link border border-gray rounded" href="{{ path('main_page') }}">Choose language</a>
                         </li>
 
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_logout') }}">Logout ({{ app.user.email }})</a>
+                                <a class="nav-link border border-gray rounded" href="{{ path('app_logout') }}">Logout ({{ app.user.email }})</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_login_index') }}">Log in</a>
+                                <a class="nav-link border border-gray rounded" href="{{ path('app_login_index') }}">Log in</a>
                             </li>
                         {% endif %}
                     </ul>
