@@ -43,7 +43,7 @@ body {
 
 th, td {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 2px 20px;
+    padding: 4px 20px;
 }
 
 footer {
@@ -59,6 +59,25 @@ a p {
     text-decoration: none;
     padding: 0;
     margin: 40px;
+}
+
+.table-grey {
+    background-color: rgba(0, 0, 0, 0.3);
+    th {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.table-width-md {
+    max-width: 550px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.table-width-sm {
+    max-width: 350px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .hidden {
@@ -81,6 +100,14 @@ a p {
             font-size: 2rem;
             text-align: center;
             text-shadow: 2px 2px 6px #6669;
+
+            .additional-info {
+                font-size: 1.2rem;
+                padding: 10px;
+                p {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }
@@ -120,6 +147,7 @@ a p {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 700px;
     color: $primaryFontColor;
 
     a:hover {
@@ -190,5 +218,26 @@ a p {
             color:red;
             display: flex;
         }
+    }
+}
+
+.btn-spinner {
+    background: transparent;
+    padding: 20px 0;
+
+    .icon-spinner {
+        transition: transform 0.4s;
+        height: 40px;
+    }
+
+    .icon-spinner:hover {
+        transform: rotate(60deg) scale(1);
+        transition: transform 0.5s;
+        cursor: pointer;
+    }
+
+    .icon-spinner.clicked {
+        transform: rotate(60deg) scale(1);
+        transition: transform 0.4s;
     }
 }
