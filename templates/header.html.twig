@@ -13,8 +13,23 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link item-shadow rounded" href="{{ path('main_page') }}">{{ 'main.choose_language'|trans }}</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle item-shadow rounded" href="#" id="languageDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="true">
+                                {{ 'main.choose_language'|trans }} ({{ app.request.locale }})
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'pl' }) }}">
+                                        🇵🇱 Polski
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'en' }) }}">
+                                        🇬🇧 English
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
