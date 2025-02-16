@@ -48,7 +48,6 @@ th, td {
 
 input, textarea, button, form {
     border-radius: 0.3rem;
-    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -187,6 +186,7 @@ a p {
             }
             input, textarea {
                 padding: 5px;
+                border: 1px solid rgba(0, 0, 0, 0.2);
             }
             textarea {
                 resize: vertical;
@@ -214,6 +214,7 @@ a p {
             font-size: 16px;
             height: 2rem;
             font-weight: bold;
+            border: 1px solid rgba(0, 0, 0, 0.2);
             &:hover {
                 box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
                 cursor: pointer;
