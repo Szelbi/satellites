@@ -1,12 +1,18 @@
+contact_form:
+    message: Message
+    send_message: 'Send message'
+    title: 'Contact us'
+    your_email: 'Your email'
+    your_message: 'Your message'
 main:
     attribute: Attribute
-    value: Value
     register: Register
+    value: Value
 weather:
-    temperature: "Temperature"
-    feels_like: "Feels Like"
-    wind_speed: "Wind Speed"
-    wind_direction: "Wind Direction"
-    condition: "Condition"
-    humidity: "Humidity"
-    pressure: "Pressure"
+    condition: Condition
+    feels_like: 'Feels Like'
+    humidity: Humidity
+    pressure: Pressure
+    temperature: Temperature
+    wind_direction: 'Wind Direction'
+    wind_speed: 'Wind Speed'
