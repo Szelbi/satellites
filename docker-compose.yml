@@ -31,6 +31,8 @@ services:
       MYSQL_DATABASE: workbench
       MYSQL_USER: user
       MYSQL_PASSWORD: test
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
     ports:
       - '3301:3306'
     networks:

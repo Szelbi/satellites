@@ -10,7 +10,8 @@
 
 ---
 
-App will be available at `localhost:8001`
+App will be available at `localhost:8001`  
+Login `admin@mail.com:admin`
 
 ---
 
