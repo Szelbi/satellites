@@ -17,14 +17,14 @@ class ContactFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Your Email',
+                'label' => 'contact_form.your_email',
                 'constraints' => [
                     new NotBlank(),
                     new Email(),
                 ],
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'Your Message',
+                'label' => 'contact_form.your_message',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['min' => 10]),

@@ -1,6 +1,7 @@
 main:
   attribute: Attribute
   value: Value
+  register: Register
 weather:
   temperature: "Temperature"
   feels_like: "Feels Like"

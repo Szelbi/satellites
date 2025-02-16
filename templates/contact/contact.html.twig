@@ -5,7 +5,7 @@
 {% block body %}
     <div class="container width-md">
         <div class="page-header">
-            <h2>Contact Us</h2>
+            <h2>{{ 'contact_form.title'|trans }}</h2>
         </div>
 
         {% for message in app.flashes('success') %}
@@ -16,7 +16,7 @@
             {{ form_start(contactForm) }}
                 {{ form_row(contactForm.email) }}
                 {{ form_row(contactForm.message) }}
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn">{{ 'contact_form.send_message'|trans }}</button>
             {{ form_end(contactForm) }}
         </div>
     </div>

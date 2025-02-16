@@ -1,6 +1,7 @@
 main:
   attribute: Cecha
   value: Wartość
+  register: Rejestracja
 weather:
   temperature: Temperatura
   feels_like: Odczuwalna
@@ -9,3 +10,9 @@ weather:
   condition: Warunki
   humidity: Wilgotność
   pressure: Ciśnienie
+contact_form:
+  title: Skontaktuj się z nami
+  send_message: Wyślij wiadomość
+  your_email: Twój email
+  your_message: Twoja wiadomość
+  message: Wiadomość
