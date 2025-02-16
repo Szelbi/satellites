@@ -9,6 +9,7 @@ services:
     restart: always
     depends_on:
       - db
+      - mailhog
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
@@ -35,17 +36,15 @@ services:
     networks:
       - workbench-network
 
-#  nginx:
-#    image: nginx:1.19-alpine
-#    container_name: satellites-nginx
-#    restart: always
-#    ports:
-#      - 8006:86
-#    volumes:
-#      - ./:/var/www/html
-#      - ./docker/nginx:/etc/nginx/conf.d
-#    networks:
-#      - satellite-network
+  mailhog:
+    image: mailhog/mailhog
+    container_name: workbench-mailhog
+    restart: always
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - workbench-network
 
 networks:
   workbench-network:
