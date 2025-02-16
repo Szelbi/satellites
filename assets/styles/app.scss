@@ -178,20 +178,23 @@ a p {
         div {
             display: grid;
             grid-template-columns: 1fr 3fr;
-            align-items: center;
             gap: 3px 25px;
 
             label {
                 font-weight: bold;
                 text-align: right;
+                padding-top: 3px;
             }
-            input,
-            textarea {
-                padding: 4px;
+            input, textarea {
+                padding: 5px;
             }
             textarea {
                 resize: vertical;
-                min-height: 120px;
+                min-height: 100px;
+            }
+            input[type="checkbox"] {
+                justify-self: left;
+                width: 16px;
             }
             ul {
                 grid-row: 2;
@@ -219,7 +222,7 @@ a p {
         }
 
         .form-error {
-            color: red;
+            color: $errorFontColor;
             font-size: 14px;
         }
     }
