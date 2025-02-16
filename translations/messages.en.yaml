@@ -20,6 +20,7 @@ main:
     login_btn: Login
     logout: Logout
     main_page_title: 'Main page'
+    should_agree_terms: 'You should agree to our terms.'
     password: Password
     register: Register
     value: Value

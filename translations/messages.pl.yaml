@@ -20,6 +20,7 @@ main:
     login_btn: Zaloguj
     logout: Wyloguj
     main_page_title: 'Strona główna'
+    should_agree_terms: 'Musisz zaakceptować regulamin'
     password: Hasło
     register: Rejestracja
     value: Wartość

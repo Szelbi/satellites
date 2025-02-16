@@ -27,9 +27,8 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotBlank(),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        'max' => 100,
+                        'min' => 8,
+                        'max' => 64,
                     ]),
                 ],
             ])
@@ -38,7 +37,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'main.should_agree_terms',
                     ]),
                 ],
             ])
