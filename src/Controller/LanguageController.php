@@ -10,13 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class LanguageController extends AbstractController
 {
-    #[Route('/change-language/{locale}', name: 'change_language', requirements: ['locale' => 'en|pl'])]
+    #[Route('/change-language/{locale}', name: 'change_language', requirements: ['locale' => 'en|pl|fr'])]
     public function changeLanguage(string $locale, Request $request, SessionInterface $session): RedirectResponse
     {
         $session->set('_locale', $locale);
 
-        $referer = $request->headers->get('referer');
-
-        return new RedirectResponse($referer ?: $this->generateUrl('main_page'));
+        return new RedirectResponse($request->headers->get('referer', '/'));
     }
 }

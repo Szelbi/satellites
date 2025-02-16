@@ -20,13 +20,18 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
                                 <li>
+                                    <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'en' }) }}">
+                                        🇬🇧 English
+                                    </a>
+                                </li>
+                                <li>
                                     <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'pl' }) }}">
                                         🇵🇱 Polski
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'en' }) }}">
-                                        🇬🇧 English
+                                    <a class="dropdown-item" href="{{ path('change_language', { 'locale': 'fr' }) }}">
+                                        🇫🇷 Français
                                     </a>
                                 </li>
                             </ul>
