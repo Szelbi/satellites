@@ -68,7 +68,12 @@ a p {
     }
 }
 
-.width-small {
+.width-sm {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.width-md {
     max-width: 700px;
     margin: 0 auto;
 }
@@ -157,7 +162,6 @@ a p {
 .register-form,
 .login-form {
     form {
-        font-size: smaller;
         color: $primaryFontColor;
         padding: 20px;
 
@@ -200,7 +204,7 @@ a p {
         button {
             background: white;
             border-radius: 0.3rem;
-            height: 25px;
+            height: 30px;
             &:hover {
                 box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
                 cursor: pointer;
