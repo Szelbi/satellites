@@ -14,9 +14,10 @@ App will be available at `localhost:8001`
 Login `admin@mail.com:admin`
 
 ---
-
-- Sass build with "watch" - `php bin/console sass:build -w`
-- JS map rebuild - `php bin/console  importmap:update`
+### Usefull commands
+- Sass build with "watch" - `bin/console sass:build -w`
+- JS map rebuild - `bin/console  importmap:update`
+- Extract missing translations - `bin/translations`
 
 ---
 ### TODO

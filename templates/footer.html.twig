@@ -12,17 +12,16 @@
             <div class="wave" id="wave4" style="background-image: url({{ wave }})"></div>
         </div>
         <ul class="menu">
-            <li class="menu-item"><a class="menu-link" href="{{ path('main_page') }}">Home</a></li>
-            <li class="menu-item"><a class="menu-link" href="#">About</a></li>
-            <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
-            <li class="menu-item"><a class="menu-link" href="#">Team</a></li>
-            <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="{{ path('main_page') }}">{{ 'footer.home'|trans }}</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">{{ 'footer.about'|trans }}</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">{{ 'footer.services'|trans }}</a></li>
+            <li class="menu-item"><a class="menu-link" href="{{ path('contact_form_index') }}">{{ 'footer.contact'|trans }}</a></li>
 
         </ul>
         <div class="bottom-section">
             <div></div>
-            <p class="align-center">&copy;2024 Dawid Gos | All Rights Reserved</p>
-            <p class="align-right">Rendered at: {{ 'now'|date('H:i:s') }}</p>
+            <p class="align-center">&copy;2025 Dawid Gos | {{ 'footer.all_rights_reserved'|trans }}</p>
+            <p class="align-right">{{ 'footer.rendered_at'|trans }}: {{ 'now'|date('H:i:s') }}</p>
         </div>
     </footer>
 {% endblock %}

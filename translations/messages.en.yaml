@@ -4,8 +4,22 @@ contact_form:
     title: 'Contact us'
     your_email: 'Your email'
     your_message: 'Your message'
+footer:
+    about: About
+    all_rights_reserved: 'All rights reserved'
+    contact: Contact
+    home: Home
+    rendered_at: 'Rendered at'
+    services: Services
 main:
     attribute: Attribute
+    choose_language: 'Choose language'
+    email: Email
+    login: Login
+    login_btn: Login
+    logout: Logout
+    main_page_title: 'Main page'
+    password: Password
     register: Register
     value: Value
 weather:

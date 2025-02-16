@@ -4,8 +4,22 @@ contact_form:
     title: 'Skontaktuj się z nami'
     your_email: 'Twój email'
     your_message: 'Twoja wiadomość'
+footer:
+    about: 'O nas'
+    all_rights_reserved: 'Wszystkie prawa zastrzeżone'
+    contact: Kontakt
+    home: 'Strona główna'
+    rendered_at: 'Wyrenderowane'
+    services: Usługi
 main:
     attribute: Cecha
+    choose_language: 'Wybierz język'
+    email: Email
+    login: Logowanie
+    login_btn: Zaloguj
+    logout: Wyloguj
+    main_page_title: 'Strona główna'
+    password: Hasło
     register: Rejestracja
     value: Wartość
 weather:

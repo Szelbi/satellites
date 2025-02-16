@@ -1,0 +1,4 @@
+#!/bin/bash
+
+php bin/console translation:extract --format=yaml --as-tree=3 --domain=messages --no-fill --sort=ASC -q --force en
+php bin/console translation:extract --format=yaml --as-tree=3 --domain=messages --no-fill --sort=ASC -q --force pl

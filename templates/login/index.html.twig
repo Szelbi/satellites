@@ -6,17 +6,17 @@
 
     <div class="container width-sm">
         <div class="page-header">
-            <h2>Login</h2>
+            <h2>{{ 'main.login'|trans }}</h2>
         </div>
 
         <div class="login-form">
             <form action="{{ path('app_login') }}" method="post">
                 <div class="login-username">
-                    <label for="username">Email</label>
+                    <label for="username">{{ 'main.email'|trans }}</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}">
                 </div>
                 <div class="login-password">
-                    <label for="password">Password</label>
+                    <label for="password">{{ 'main.password'|trans }}</label>
                     <input type="password" id="password" name="_password">
                 </div>
                 {% if error %}
@@ -25,7 +25,7 @@
                 {# If you want to control the URL the user is redirected to on success
                 <input type="hidden" name="_target_path" value="/account"> #}
 
-                <button type="submit">Login</button>
+                <button type="submit">{{ 'main.login_btn'|trans }}</button>
             </form>
         </div>
     </div>
