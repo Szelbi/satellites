@@ -25,6 +25,9 @@
     {% block javascripts %}
         {% block importmap %}
             {{ importmap('app') }}
+            <script type="module">
+                import 'bootstrap';
+            </script>
         {% endblock %}
     {% endblock %}
 
