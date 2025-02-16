@@ -43,7 +43,7 @@ body {
 
 th, td {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 4px 20px;
+    padding: 2px 20px;
 }
 
 footer {
@@ -115,14 +115,13 @@ a p {
 }
 
 .endpoints-container {
-    padding: 20px 0;
 
     .endpoints-container-list {
         display: flex;
         flex-direction: column;
 
         a {
-            padding: 10px;
+            padding: 5px;
             margin: 5px 0;
             box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
             text-decoration: none;

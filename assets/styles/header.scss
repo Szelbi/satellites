@@ -16,7 +16,7 @@ header {
 
                 .nav-link {
                     padding: 0.5rem;
-                    font-size: 20px;
+                    font-size: 16px;
                     color: $navFontColor;
                     border: #f8f8f2 dot-dash ;
 
@@ -37,6 +37,19 @@ header {
                     text-align: end;
                 }
             }
+
+            a {
+                padding: 7px;
+            }
+        }
+    }
+
+    .item-shadow {
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
         }
     }
 }
