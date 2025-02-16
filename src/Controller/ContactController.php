@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MailController extends AbstractController
+class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contact_form_index')]
     public function contact(Request $request, MailerService $mailerService): Response
