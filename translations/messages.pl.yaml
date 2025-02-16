@@ -1,18 +1,18 @@
 main:
-  attribute: Cecha
-  value: Wartość
-  register: Rejestracja
+    attribute: Cecha
+    value: Wartość
+    register: Rejestracja
 weather:
-  temperature: Temperatura
-  feels_like: Odczuwalna
-  wind_speed: Prędkość wiatru
-  wind_direction: Kierunek wiatru
-  condition: Warunki
-  humidity: Wilgotność
-  pressure: Ciśnienie
+    temperature: Temperatura
+    feels_like: Odczuwalna
+    wind_speed: Prędkość wiatru
+    wind_direction: Kierunek wiatru
+    condition: Warunki
+    humidity: Wilgotność
+    pressure: Ciśnienie
 contact_form:
-  title: Skontaktuj się z nami
-  send_message: Wyślij wiadomość
-  your_email: Twój email
-  your_message: Twoja wiadomość
-  message: Wiadomość
+    title: Skontaktuj się z nami
+    send_message: Wyślij wiadomość
+    your_email: Twój email
+    your_message: Twoja wiadomość
+    message: Wiadomość

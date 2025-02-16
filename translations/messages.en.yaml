@@ -1,12 +1,12 @@
 main:
-  attribute: Attribute
-  value: Value
-  register: Register
+    attribute: Attribute
+    value: Value
+    register: Register
 weather:
-  temperature: "Temperature"
-  feels_like: "Feels Like"
-  wind_speed: "Wind Speed"
-  wind_direction: "Wind Direction"
-  condition: "Condition"
-  humidity: "Humidity"
-  pressure: "Pressure"
+    temperature: "Temperature"
+    feels_like: "Feels Like"
+    wind_speed: "Wind Speed"
+    wind_direction: "Wind Direction"
+    condition: "Condition"
+    humidity: "Humidity"
+    pressure: "Pressure"
