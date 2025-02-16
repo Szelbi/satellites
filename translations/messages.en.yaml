@@ -12,6 +12,7 @@ footer:
     rendered_at: 'Rendered at'
     services: Services
 main:
+    agree_terms: Agree terms
     attribute: Attribute
     choose_language: 'Choose language'
     email: Email

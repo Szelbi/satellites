@@ -9,9 +9,10 @@ footer:
     all_rights_reserved: 'Wszystkie prawa zastrzeżone'
     contact: Kontakt
     home: 'Strona główna'
-    rendered_at: 'Wyrenderowane'
+    rendered_at: Wyrenderowane
     services: Usługi
 main:
+    agree_terms: Akceptuję regulamin
     attribute: Cecha
     choose_language: 'Wybierz język'
     email: Email
