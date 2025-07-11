@@ -28,3 +28,4 @@ Login `admin@mail.com:admin`
 - codeception/codesniffer
 - potwierdzanie maila przy rejestracji
 - resetowanie hasla
+- metody flash nie dzialaja

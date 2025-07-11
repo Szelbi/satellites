@@ -100,9 +100,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->emailVerified;
     }
 
-    public function setEmailVerified(bool $emailVerified): static
+    public function setEmailVerified(): static
     {
-        $this->emailVerified = $emailVerified;
+        $this->emailVerified = true;
+        $this->verificationToken = null;
+
         return $this;
     }
 
