@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class LanguageController extends AbstractController
 {
-    #[Route('/change-language/{locale}', name: 'change_language', requirements: ['locale' => 'en|pl|fr'])]
+    #[Route('/change-language/{locale}', name: 'change_language', requirements: ['locale' => 'en|pl'])]
     public function changeLanguage(string $locale, Request $request, SessionInterface $session): RedirectResponse
     {
         $session->set('_locale', $locale);
