@@ -14,22 +14,28 @@ The project runs in Docker containers. Use these commands:
 - **Setup application**: `bin/install` (run inside container)
 - **Application URL**: `localhost:8001`
 - **Default login**: `admin@mail.com:admin`
+- **Container name**: `workbench-app`
 
 ## Essential Commands
 
+**IMPORTANT**: All PHP/Symfony commands should be executed inside the Docker container using:
+`docker exec workbench-app [command]`
+
 ### Build & Assets
-- **Build CSS**: `bin/console sass:build` or `bin/build`
-- **Build CSS with watch**: `bin/console sass:build -w`
-- **Update JS imports**: `bin/console importmap:update`
+- **Build CSS**: `docker exec workbench-app bin/console sass:build` or `docker exec workbench-app bin/build`
+- **Build CSS with watch**: `docker exec workbench-app bin/console sass:build -w`
+- **Update JS imports**: `docker exec workbench-app bin/console importmap:update`
 
 ### Development
-- **Extract translations**: `bin/translations`
-- **Doctrine migrations**: `bin/console doctrine:migrations:migrate`
-- **Create user**: `bin/console app:create-use [email] [password]`
-- **Grant admin role**: `bin/console app:grant-role [email] ROLE_ADMIN`
+- **Extract translations**: `docker exec workbench-app bin/translations`
+- **Doctrine migrations**: `docker exec workbench-app bin/console doctrine:migrations:migrate`
+- **Create user**: `docker exec workbench-app bin/console app:create-use [email] [password]`
+- **Grant admin role**: `docker exec workbench-app bin/console app:grant-role [email] ROLE_ADMIN`
+- **Clear cache**: `docker exec workbench-app bin/console cache:clear`
 
 ### Console Access
-- **Symfony console**: `bin/console` (access to all Symfony commands)
+- **Symfony console**: `docker exec workbench-app bin/console` (access to all Symfony commands)
+- **Interactive shell**: `docker exec -it workbench-app bash`
 
 ## Architecture
 
