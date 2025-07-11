@@ -15,11 +15,14 @@ main:
     agree_terms: Akceptuję regulamin
     attribute: Cecha
     choose_language: 'Wybierz język'
+    confirm_password: 'Potwierdź hasło'
     email: Email
     login: Logowanie
     login_btn: Zaloguj
     logout: Wyloguj
     main_page_title: 'Strona główna'
+    no_account: 'Nie masz konta?'
+    password_mismatch: 'Hasła nie są identyczne'
     should_agree_terms: 'Musisz zaakceptować regulamin'
     password: Hasło
     register: Rejestracja

@@ -15,11 +15,14 @@ main:
     agree_terms: Agree terms
     attribute: Attribute
     choose_language: 'Choose language'
+    confirm_password: 'Confirm Password'
     email: Email
     login: Login
     login_btn: Login
     logout: Logout
     main_page_title: 'Main page'
+    no_account: "Don't have an account?"
+    password_mismatch: 'Passwords do not match'
     should_agree_terms: 'You should agree to our terms.'
     password: Password
     register: Register

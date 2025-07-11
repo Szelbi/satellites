@@ -22,4 +22,3 @@ security:
 
     access_control:
          - { path: ^/todo, roles: ROLE_USER }
-         - { path: ^/register, roles: ROLE_ADMIN }

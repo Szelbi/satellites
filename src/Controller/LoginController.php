@@ -10,32 +10,19 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login_index')]
+    #[Route('/login', name: 'app_login_index', methods: ['GET', 'POST'])]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('main_page');
+        }
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('login/index.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
-        ]);
-    }
-
-
-    #[Route('/login', name: 'app_login')]
-    public function index2(AuthenticationUtils $authenticationUtils): Response
-    {
-        if ($this->getUser()) {
-            return $this->redirectToRoute('dashboard');
-        }
-
-        $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('@EasyAdmin/page/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error'         => $error,
         ]);
     }
 
