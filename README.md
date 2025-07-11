@@ -6,12 +6,18 @@
 ## Installation
 1. On host: `docker compose up -d`
 2. Enter container and run `bin/install`
-3. *[optional]* Get your Weather API Key from https://www.weatherapi.com and add it to `.env.local.php`
+
+- By default emails will be send to mailgoh service. Its available at `http://localhost:8025/`. 
+Optionally you can add your real sender email configuration (etc. `MAILER_DSN=smtp://<mail>>:<app_password>@smtp.gmail.com:587`) to `.
+env.local`  
+- To get real weather info you need to create Weather API account at https://www.weatherapi.com and provide its API Key to `.env.local`
+(`WEATHER_API_KEY=<api_key>`)
 
 ---
 
-App will be available at `localhost:8001`  
-Login `admin@mail.com:admin`
+App will be available at `http://localhost:8001`  
+Mailhog service: `http://localhost:8025`  
+Admin login: `admin@mail.com:admin`  
 
 ---
 ### Usefull commands
