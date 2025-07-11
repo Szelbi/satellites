@@ -52,4 +52,9 @@ header {
             opacity: 1;
         }
     }
+
+    .auth-buttons {
+        display: flex;
+        gap: 1rem;
+    }
 }

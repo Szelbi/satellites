@@ -26,6 +26,8 @@ The project runs in Docker containers. Use these commands:
 - **Build CSS with watch**: `docker exec workbench-app bin/console sass:build -w`
 - **Update JS imports**: `docker exec workbench-app bin/console importmap:update`
 
+**IMPORTANT**: After making changes to SCSS files, ALWAYS rebuild CSS with `docker exec workbench-app bin/console sass:build -q`
+
 ### Development
 - **Extract translations**: `docker exec workbench-app bin/translations`
 - **Doctrine migrations**: `docker exec workbench-app bin/console doctrine:migrations:migrate`
