@@ -21,7 +21,6 @@ Login `admin@mail.com:admin`
 
 ---
 ### TODO
-- language switcher (+translations for entire page)
 - login (autrorization, sessions)
 - notifications in Todo list
 - user Control panel
