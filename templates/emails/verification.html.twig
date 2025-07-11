@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Potwierdź swój email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 0 0 5px 5px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Potwierdź swój email</h1>
+    </div>
+    
+    <div class="content">
+        <p>Cześć!</p>
+        
+        <p>Dziękujemy za rejestrację w naszym serwisie. Aby dokończyć proces rejestracji, musisz potwierdzić swój adres email.</p>
+        
+        <p>Kliknij w poniższy przycisk, aby potwierdzić swój email:</p>
+        
+        <a href="{{ verification_url }}" class="button">Potwierdź email</a>
+        
+        <p>Jeśli przycisk nie działa, możesz skopiować i wkleić poniższy link do przeglądarki:</p>
+        <p><a href="{{ verification_url }}">{{ verification_url }}</a></p>
+        
+        <p>Jeśli nie rejestrowałeś się w naszym serwisie, możesz zignorować ten email.</p>
+        
+        <div class="footer">
+            <p>Ten email został wysłany automatycznie. Prosimy nie odpowiadać na tę wiadomość.</p>
+        </div>
+    </div>
+</body>
+</html>

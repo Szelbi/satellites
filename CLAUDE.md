@@ -82,3 +82,17 @@ The project runs in Docker containers. Use these commands:
 ## Testing & Quality
 
 The project uses Symfony's standard testing structure. Run tests through the Symfony console or check for specific test scripts in composer.json.
+
+## Code Style Guidelines
+
+### PHP Class Structure
+**NEVER put multiple classes in a single file.** Each class must have its own separate file following PSR-4 autoloading standards. This includes:
+- Main classes and their DTOs/Value Objects
+- Exception classes
+- Interfaces and implementations
+- Enums and data structures
+
+Always create separate files for better maintainability, autoloading, and code organization.
+
+### File Formatting
+**ALWAYS end files with a single empty line.** This follows Git and POSIX standards for proper file formatting.

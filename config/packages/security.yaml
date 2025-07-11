@@ -16,9 +16,10 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            user_checker: App\Security\EmailVerifiedUserChecker
             form_login:
-                login_path: app_login_index
-                check_path: app_login_index
+                login_path: app_login
+                check_path: app_login
             login_throttling:
                 max_attempts: 3
                 interval: '3 minutes'

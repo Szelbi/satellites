@@ -25,6 +25,7 @@ class UserService
 
         $newUser->setEmail($email);
         $newUser->setPassword($password);
+        $newUser->setEmailVerified();
 
         $errors = $this->validator->validate($newUser);
 

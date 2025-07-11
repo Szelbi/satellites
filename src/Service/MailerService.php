@@ -11,7 +11,7 @@ readonly class MailerService
 {
     public function __construct(
         private MailerInterface $mailer,
-        private Environment $twig
+        private Environment $twig,
     ) {
     }
 
@@ -24,6 +24,25 @@ readonly class MailerService
             ->html($this->twig->render('emails/contact.html.twig', [
                 'email' => $fromEmail,
                 'message' => $messageContent,
+            ]));
+
+        $this->mailer->send($email);
+    }
+
+    public function sendEmailVerification(string $toEmail, string $verificationToken): void
+    {
+        $verificationUrl = sprintf(
+            '%s/verify-email?token=%s',
+            $_ENV['APP_URL'] ?? 'http://localhost:8001',
+            $verificationToken
+        );
+
+        $email = (new Email())
+            ->from('dawid.sender@gmail.com')
+            ->to($toEmail)
+            ->subject('Potwierdź swój email')
+            ->html($this->twig->render('emails/verification.html.twig', [
+                'verification_url' => $verificationUrl,
             ]));
 
         $this->mailer->send($email);
