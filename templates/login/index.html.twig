@@ -10,7 +10,7 @@
         </div>
 
         <div class="login-form">
-            <form action="{{ path('app_login_index') }}" method="post">
+            <form action="{{ path('app_login') }}" method="post">
                 <div class="login-username">
                     <label for="username">{{ 'main.email'|trans }}</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}">
@@ -29,7 +29,7 @@
             </form>
             
             <div class="register-link mt-3">
-                <p>{{ 'main.no_account'|trans }} <a href="{{ path('app_register_index') }}">{{ 'main.register'|trans }}</a></p>
+                <p>{{ 'main.no_account'|trans }} <a href="{{ path('app_register') }}">{{ 'main.register'|trans }}</a></p>
             </div>
         </div>
     </div>
