@@ -19,6 +19,9 @@ security:
             form_login:
                 login_path: app_login_index
                 check_path: app_login_index
+            logout:
+                path: /logout
+                target: /
 
     access_control:
          - { path: ^/todo, roles: ROLE_USER }

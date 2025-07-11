@@ -34,7 +34,7 @@
 
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <li class="nav-item">
-                                <a class="nav-link item-shadow rounded" href="{{ path('app_logout') }}">{{ 'main.logout'|trans }} ({{ app.user.email }})</a>
+                                <a class="nav-link item-shadow rounded" href="/logout">{{ 'main.logout'|trans }} ({{ app.user.email }})</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
