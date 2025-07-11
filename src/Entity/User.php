@@ -28,6 +28,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, options: ["default" => null])]
     private ?string $password = null;
 
+    #[ORM\Column(type: "boolean", options: ["default" => false])]
+    private bool $emailVerified = false;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $verificationToken = null;
+
 
     public function getEmail(): ?string
     {
@@ -87,6 +93,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function isEmailVerified(): bool
+    {
+        return $this->emailVerified;
+    }
+
+    public function setEmailVerified(bool $emailVerified): static
+    {
+        $this->emailVerified = $emailVerified;
+        return $this;
+    }
+
+    public function getVerificationToken(): ?string
+    {
+        return $this->verificationToken;
+    }
+
+    public function setVerificationToken(?string $verificationToken): static
+    {
+        $this->verificationToken = $verificationToken;
+        return $this;
     }
 
     public function __toString(): string
