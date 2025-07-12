@@ -10,4 +10,5 @@ alias grep='grep --color=auto'
 alias pbc='php bin/console'
 alias rmc='rm -rf var/cache; echo var/cache removed'
 alias cc='rm -rf var/cache; php bin/console cache:clear; echo var/cache removed \& cache cleared'
-
+alias pu='./vendor/bin/phpunit'
+alias puf='./vendor/bin/phpunit --filter'
