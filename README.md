@@ -32,6 +32,6 @@ Admin login: `admin@mail.com:admin`
 - user Control panel
 - unit tests
 - codeception/codesniffer
-- potwierdzanie maila przy rejestracji
 - resetowanie hasla
 - metody flash nie dzialaja
+- przejscie na DDD albo cos posredniego
