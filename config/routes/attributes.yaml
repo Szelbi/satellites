@@ -1,0 +1,30 @@
+# DDD Controllers
+communication_controllers:
+    resource:
+        path: ../../src/Communication/UserInterface/Web/Controller/
+        namespace: App\Communication\UserInterface\Web\Controller
+    type: attribute
+
+user_controllers:
+    resource:
+        path: ../../src/User/UserInterface/Web/Controller/
+        namespace: App\User\UserInterface\Web\Controller
+    type: attribute
+
+todo_controllers:
+    resource:
+        path: ../../src/Todo/UserInterface/Web/Controller/
+        namespace: App\Todo\UserInterface\Web\Controller
+    type: attribute
+
+weather_controllers:
+    resource:
+        path: ../../src/Weather/UserInterface/Web/Controller/
+        namespace: App\Weather\UserInterface\Web\Controller
+    type: attribute
+
+shared_controllers:
+    resource:
+        path: ../../src/Shared/UserInterface/Web/Controller/
+        namespace: App\Shared\UserInterface\Web\Controller
+    type: attribute

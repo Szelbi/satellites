@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Weather\UserInterface\Controller;
+namespace App\Weather\UserInterface\Web\Controller;
 
 use App\Weather\Application\WeatherApiHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

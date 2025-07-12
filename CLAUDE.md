@@ -42,12 +42,50 @@ The project runs in Docker containers. Use these commands:
 
 ## Architecture
 
-### Core Structure
-- **Controllers**: Handle HTTP requests for different features (satellites, todos, weather, auth)
-- **Entities**: Database models with traits for common functionality (timestamps, positioning, properties)
-- **Services**: Business logic layer (SatelliteService, TodoService, WeatherApiHandler, MailerService)
-- **Forms**: Symfony form types for user input handling
-- **Commands**: Custom console commands for user management
+### Domain-Driven Design Structure
+
+The application follows DDD (Domain-Driven Design) principles with bounded contexts organized into modules:
+
+#### Core Modules (Bounded Contexts)
+- **Satellite**: Core satellite tracking functionality
+- **Todo**: Task management system
+- **Weather**: Weather data integration
+- **User**: Authentication and user management
+- **Communication**: Email and messaging services
+- **Shared**: Common utilities and cross-cutting concerns
+
+#### DDD Layer Structure
+Each module follows a consistent 4-layer architecture:
+
+**Domain Layer** (`Domain/`):
+- `Entity/`: Core business entities and domain models
+- `Repository/`: Repository interfaces (contracts)
+- `Service/`: Domain services with business logic
+- `ValueObject/`: Value objects and domain-specific data structures
+
+**Application Layer** (`Application/`):
+- `Command/`: Command handlers for write operations (CQRS)
+- `Query/`: Query handlers for read operations (CQRS)
+- `Service/`: Application services orchestrating domain logic
+- `Dto/`: Data Transfer Objects for application boundaries
+
+**Infrastructure Layer** (`Infrastructure/`):
+- `Repository/`: Concrete repository implementations
+- `Service/`: External service integrations
+- `Persistence/`: Database and storage implementations
+
+**User Interface Layer** (`UserInterface/`):
+- `Web/Controller/`: HTTP controllers for web interface
+- `Web/Form/`: Symfony form types
+- `Cli/Command/`: Console commands
+- `Api/`: API controllers (if applicable)
+
+#### Shared Components
+The `Shared/` module contains:
+- **Domain traits**: Common entity traits (IdTrait, TimestampableEntityTrait, PositionTrait, etc.)
+- **Application services**: Cross-cutting application concerns
+- **Infrastructure**: Shared persistence and external service integrations
+- **UI components**: Common controllers and form utilities
 
 ### Key Features
 - **Satellite tracking**: Core functionality for satellite data management
@@ -55,10 +93,11 @@ The project runs in Docker containers. Use these commands:
 - **Weather integration**: External API integration with WeatherApi.com
 - **Multi-language**: English/Polish translation support
 - **User system**: Authentication with role-based access
+- **Email verification**: User registration with email verification workflow
 
 ### Database
 - Uses Doctrine ORM with MySQL
-- Entities use traits for common fields (ID, timestamps, positioning)
+- Entities use shared traits from `Shared/Domain/Entity/Trait/` for common fields
 - Migration-based schema management
 
 ### Frontend
@@ -73,18 +112,41 @@ The project runs in Docker containers. Use these commands:
 - Docker configuration in `docker-compose.yml`
 
 ### Key Directories
-- `src/`: Application source code
+- `src/`: Application source code organized in DDD modules
+  - `src/Satellite/`: Satellite tracking bounded context
+  - `src/Todo/`: Todo management bounded context
+  - `src/Weather/`: Weather integration bounded context
+  - `src/User/`: User management bounded context
+  - `src/Communication/`: Email and messaging bounded context
+  - `src/Shared/`: Shared utilities and cross-cutting concerns
+  - `src/Service/`: Legacy services (being migrated to bounded contexts)
 - `templates/`: Twig templates
 - `assets/`: Frontend assets (SCSS, JS)
 - `translations/`: Language files (en, pl)
 - `config/`: Symfony configuration
 - `migrations/`: Database migrations
+- `tests/`: Unit and integration tests organized by bounded context
 
 ## Testing & Quality
 
-The project uses Symfony's standard testing structure. Run tests through the Symfony console or check for specific test scripts in composer.json.
+The project uses PHPUnit for testing with a structure organized by bounded contexts:
+- **Unit tests**: Located in `tests/Unit/` following the DDD module structure
+- **Integration tests**: For testing module interactions and external dependencies
+- **Run tests**: `docker exec workbench-app vendor/bin/phpunit` or `docker exec workbench-app composer test`
+- **Test configuration**: `phpunit.dist.xml`
+
+Example test paths:
+- `tests/Unit/Service/MailerServiceTest.php`: Legacy service tests
+- `tests/Unit/Service/Application/`: Application service tests
+- `tests/Unit/Service/Infrastructure/`: Infrastructure service tests
 
 ## Code Style Guidelines
+
+### DDD Architecture Rules
+- **Bounded Context Isolation**: Each module (`Satellite/`, `Todo/`, `Weather/`, etc.) should be self-contained
+- **Layer Dependencies**: Follow dependency direction: UserInterface → Application → Domain ← Infrastructure
+- **No Cross-Module Dependencies**: Modules should not directly depend on each other (use events or shared interfaces)
+- **Domain First**: Start with Domain layer when implementing new features
 
 ### PHP Class Structure
 **NEVER put multiple classes in a single file.** Each class must have its own separate file following PSR-4 autoloading standards. This includes:
@@ -94,6 +156,12 @@ The project uses Symfony's standard testing structure. Run tests through the Sym
 - Enums and data structures
 
 Always create separate files for better maintainability, autoloading, and code organization.
+
+### Naming Conventions
+- **Entities**: Singular nouns (e.g., `User`, `Satellite`, `Todo`)
+- **Services**: End with `Service` or `Handler` (e.g., `UserRegistrationHandler`, `WeatherApiHandler`)
+- **Commands/Queries**: Descriptive action names (e.g., `CreateUserCommand`, `GetProjectListQuery`)
+- **DTOs**: End with `Dto` (e.g., `WeatherApiResponseDto`, `VerificationResult`)
 
 ### File Formatting
 **ALWAYS end files with a single empty line.** This follows Git and POSIX standards for proper file formatting.
