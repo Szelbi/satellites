@@ -27,15 +27,15 @@ class WeatherController extends AbstractController
         $weatherData = $service->getWeatherDataForCity('Tychy');
 
         return new JsonResponse([
-            'city' => $weatherData->getCity(),
-            'temperatureC' => $weatherData->getTemperatureC(),
-            'feelsLikeC' => $weatherData->getFeelsLikeC(),
-            'windSpeedKph' => $weatherData->getWindSpeedKph(),
-            'windDirection' => $weatherData->getWindDirection(),
-            'conditionText' => $weatherData->getConditionText(),
-            'humidity' => $weatherData->getHumidity(),
-            'pressureMb' => $weatherData->getPressureMb(),
-            'lastUpdated' => $weatherData->getLastUpdated(),
+            'city' => $weatherData->city,
+            'temperatureC' => $weatherData->temperatureC,
+            'feelsLikeC' => $weatherData->feelsLikeC,
+            'windSpeedKph' => $weatherData->windSpeedKph,
+            'windDirection' => $weatherData->windDirection,
+            'conditionText' => $weatherData->conditionText,
+            'humidity' => $weatherData->humidity,
+            'pressureMb' => $weatherData->pressureMb,
+            'lastUpdated' => $weatherData->lastUpdated,
             'requestTime' => date('Y-m-d H:i:s'),
         ]);
     }

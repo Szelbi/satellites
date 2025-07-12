@@ -4,7 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Symfony 7.2 workbench application built with PHP 8.3, featuring satellite tracking, todo management, weather integration, and multi-language support. The application uses Doctrine ORM for database operations and includes features like user authentication, contact forms, and a translation system.
+This is a Symfony 7.3 workbench application built with PHP 8.4, featuring satellite tracking, todo management, weather integration, and 
+multi-language support. The application uses Doctrine ORM for database operations and includes features like user authentication, contact forms, and a translation system.
 
 ## Development Environment
 

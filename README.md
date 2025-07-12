@@ -1,4 +1,4 @@
-### Workbench project build on PHP 8.3 and Symfony 7.2
+### Workbench project build on PHP 8.4 and Symfony 7.3
 
 ## Requirements
 - docker
