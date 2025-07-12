@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Communication\UserInterface\Web\Controller;
 
 use App\Communication\Application\MailerHandler;
-use App\Form\ContactFormType;
+use App\Communication\UserInterface\Web\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

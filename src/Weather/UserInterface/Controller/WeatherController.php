@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Weather\UserInterface\Controller;
 
-use App\Service\WeatherApiHandler;
+use App\Weather\Application\WeatherApiHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

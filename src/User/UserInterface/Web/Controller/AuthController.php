@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\User\UserInterface\Web\Controller;
 
-use App\Form\RegistrationFormType;
+use App\Communication\UserInterface\Web\Form\RegistrationFormType;
 use App\Service\EmailVerificationService;
 use App\Service\UserRegistrationHandler;
 use App\User\Domain\Entity\User;

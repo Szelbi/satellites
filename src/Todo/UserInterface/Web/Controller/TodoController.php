@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Todo\UserInterface\Web\Controller;
 
-use App\Form\TodoType;
-use App\Form\Trait\FormHandleTrait;
+use App\Todo\UserInterface\Web\Form\TodoType;
+use App\Shared\UserInterface\Web\Trait\FormHandleTrait;
 use App\Todo\Application\Command\TodoHandler;
 use App\Todo\Domain\Entity\Todo;
 use Doctrine\ORM\EntityManagerInterface;

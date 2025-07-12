@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace App\User\UserInterface\Cli\Command;
 
 use App\Service\UserService;
 use Symfony\Component\Console\Attribute\AsCommand;

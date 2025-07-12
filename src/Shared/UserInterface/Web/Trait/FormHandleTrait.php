@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\Trait;
+namespace App\Shared\UserInterface\Web\Trait;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;

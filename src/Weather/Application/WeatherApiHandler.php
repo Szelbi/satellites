@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Weather\Application;
 
-use App\Dto\WeatherApiResponseDto;
+use App\Weather\Application\Dto\WeatherApiResponseDto;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
