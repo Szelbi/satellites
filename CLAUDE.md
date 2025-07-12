@@ -45,7 +45,7 @@ The project runs in Docker containers. Use these commands:
 ### Core Structure
 - **Controllers**: Handle HTTP requests for different features (satellites, todos, weather, auth)
 - **Entities**: Database models with traits for common functionality (timestamps, positioning, properties)
-- **Services**: Business logic layer (SatelliteService, TodoService, WeatherApiService, MailerService)
+- **Services**: Business logic layer (SatelliteService, TodoService, WeatherApiHandler, MailerService)
 - **Forms**: Symfony form types for user input handling
 - **Commands**: Custom console commands for user management
 

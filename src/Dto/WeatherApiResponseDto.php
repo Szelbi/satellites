@@ -16,6 +16,7 @@ readonly class WeatherApiResponseDto
         public string $country,
         public float $pressureMb,
         public string $lastUpdated,
+        public string $requestTime,
     ) {
     }
 }

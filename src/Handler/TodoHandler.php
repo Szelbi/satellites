@@ -1,14 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Handler;
 
 use App\Entity\Todo;
 use App\Service\Trait\TransactionalMakeTrait;
+use App\Service\TransactionalMakeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
-class TodoService implements TransactionalMakeInterface
+class TodoHandler implements TransactionalMakeInterface
 {
     use TransactionalMakeTrait;
 

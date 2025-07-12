@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Handler;
 
 use App\Entity\Satellite;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
-class SatelliteService
+class GetProjectListHandler
 {
     const API_PROJECTS_DOMAINS = [
         'epapi',

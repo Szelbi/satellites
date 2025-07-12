@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Todo;
 use App\Form\TodoType;
 use App\Form\Trait\FormHandleTrait;
-use App\Service\TodoService;
+use App\Handler\TodoHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class TodoController extends AbstractController
     use FormHandleTrait;
 
     public function __construct(
-        private readonly TodoService $service
+        private readonly TodoHandler $service
     ) {
     }
 

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-readonly class WeatherApiService
+readonly class WeatherApiHandler
 {
 
     public function __construct(
@@ -42,7 +42,8 @@ readonly class WeatherApiService
             $data['current']['feelslike_c'],  // Odczuwalna temperatura
             $data['location']['country'],
             $data['current']['pressure_mb'],  // Ciśnienie atmosferyczne
-            $data['current']['last_updated']
+            $data['current']['last_updated'],
+            date('Y-m-d H:i:s'),
         );
     }
 

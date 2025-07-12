@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\SatelliteService;
+use App\Handler\GetProjectListHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,9 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProjectsController extends AbstractController
 {
     #[Route('/projects/list', name: 'projects_index')]
-    public function index(SatelliteService $service): Response
+    public function index(GetProjectListHandler $handler): Response
     {
-        $allProjects = $service->getAllProjects();
+        $allProjects = $handler->getAllProjects();
 
         return $this->render('satellite/list.html.twig', [
             'satellites' => $allProjects,

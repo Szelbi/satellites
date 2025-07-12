@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Service\EmailVerificationService;
-use App\Service\UserRegistrationService;
+use App\Service\UserRegistrationHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class AuthController extends AbstractController
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('main_page');
+            return $this->redirectToRoute('home_page');
         }
 
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -31,7 +31,7 @@ class AuthController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserRegistrationService $registrationService): Response
+    public function register(Request $request, UserRegistrationHandler $registrationService): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);

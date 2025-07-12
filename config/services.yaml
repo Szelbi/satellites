@@ -20,7 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Service\WeatherApiService:
+    App\Service\WeatherApiHandler:
         arguments:
             $weatherApiKey: '%env(WEATHER_API_KEY)%'
             $weatherApiUrl: '%env(WEATHER_API_URL)%'

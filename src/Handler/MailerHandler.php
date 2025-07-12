@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Handler;
 
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
-readonly class MailerService
+readonly class MailerHandler
 {
     public function __construct(
         private MailerInterface $mailer,

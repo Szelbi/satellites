@@ -20,7 +20,7 @@ main:
     login: Logowanie
     login_btn: Zaloguj
     logout: Wyloguj
-    main_page_title: 'Strona główna'
+    home_page_title: 'Strona główna'
     no_account: 'Nie masz konta?'
     password_mismatch: 'Hasła nie są identyczne'
     should_agree_terms: 'Musisz zaakceptować regulamin'

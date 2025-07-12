@@ -4,15 +4,16 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\User;
+use App\Handler\MailerHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-readonly class UserRegistrationService
+readonly class UserRegistrationHandler
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
         private UserPasswordHasherInterface $passwordHasher,
-        private MailerService $mailerService
+        private MailerHandler $mailerService,
     ) {
     }
 
@@ -23,7 +24,7 @@ readonly class UserRegistrationService
 
         $verificationToken = $this->generateVerificationToken();
         $user->setVerificationToken($verificationToken);
-        $user->setEmailVerified(false);
+        $user->setEmailVerified();
 
         $this->entityManager->persist($user);
         $this->entityManager->flush();

@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
-class MainController extends AbstractController
+class HomeController extends AbstractController
 {
-    #[Route('/', name: 'main_page')]
+    #[Route('/', name: 'home_page')]
     public function index(RouterInterface $router): Response
     {
         $routes = $router->getRouteCollection()->all();
