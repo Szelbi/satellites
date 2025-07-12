@@ -4,144 +4,64 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Service;
 
-use App\Communication\Application\MailerService;
+use App\Communication\Application\Dto\EmailDto;
+use App\Communication\Infrastructure\Service\SymfonyMailerService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-use Twig\Environment;
 
 /**
- * @covers \App\Communication\Application\MailerService
+ * @covers \App\Communication\Infrastructure\Service\SymfonyMailerService
  */
 class MailerServiceTest extends TestCase
 {
     private MailerInterface $mailer;
-    private Environment $twig;
-    private MailerService $mailerService;
+    private SymfonyMailerService $mailerService;
 
     protected function setUp(): void
     {
         $this->mailer = $this->createMock(MailerInterface::class);
-        $this->twig = $this->createMock(Environment::class);
-        $this->mailerService = new MailerService($this->mailer, $this->twig);
+        $this->mailerService = new SymfonyMailerService($this->mailer);
     }
 
-    public function testSendContactMessage(): void
+    public function testSend(): void
     {
-        $fromEmail = 'test@example.com';
-        $messageContent = 'Test message content';
-        $renderedTemplate = '<h1>Contact Message</h1><p>Test message content</p>';
-
-        $this->twig->expects($this->once())
-            ->method('render')
-            ->with('emails/contact.html.twig', [
-                'email' => $fromEmail,
-                'message' => $messageContent,
-            ])
-            ->willReturn($renderedTemplate);
+        $emailDto = new EmailDto(
+            from: 'test@example.com',
+            to: 'recipient@example.com',
+            subject: 'Test Subject',
+            htmlContent: '<h1>Test Content</h1>'
+        );
 
         $this->mailer->expects($this->once())
             ->method('send')
             ->with($this->callback(function (Email $email): bool {
                 return $email->getFrom()[0]->getAddress() === 'test@example.com'
-                    && $email->getTo()[0]->getAddress() === 'dawidgos25@gmail.com'
-                    && $email->getSubject() === 'New Contact Form Submission'
-                    && $email->getHtmlBody() === '<h1>Contact Message</h1><p>Test message content</p>';
+                    && $email->getTo()[0]->getAddress() === 'recipient@example.com'
+                    && $email->getSubject() === 'Test Subject'
+                    && $email->getHtmlBody() === '<h1>Test Content</h1>';
             }));
 
-        $this->mailerService->sendContactMessage($fromEmail, $messageContent);
+        $this->mailerService->send($emailDto);
     }
 
-    public function testSendEmailVerification(): void
+    public function testSendWithMultipleRecipients(): void
     {
-        $toEmail = 'user@example.com';
-        $verificationToken = 'abc123token';
-        $renderedTemplate = '<p>Please verify your email</p>';
-
-        $_ENV['APP_URL'] = 'https://test.example.com';
-
-        $this->twig->expects($this->once())
-            ->method('render')
-            ->with('emails/verification.html.twig', [
-                'verification_url' => 'https://test.example.com/verify-email?token=abc123token',
-            ])
-            ->willReturn($renderedTemplate);
+        $emailDto = new EmailDto(
+            from: 'sender@example.com',
+            to: 'user1@example.com,user2@example.com',
+            subject: 'Multiple Recipients Test',
+            htmlContent: '<p>Hello everyone!</p>'
+        );
 
         $this->mailer->expects($this->once())
             ->method('send')
             ->with($this->callback(function (Email $email): bool {
-                return $email->getFrom()[0]->getAddress() === 'dawid.sender@gmail.com'
-                    && $email->getTo()[0]->getAddress() === 'user@example.com'
-                    && $email->getSubject() === 'Potwierdź swój email'
-                    && $email->getHtmlBody() === '<p>Please verify your email</p>';
+                return $email->getFrom()[0]->getAddress() === 'sender@example.com'
+                    && $email->getSubject() === 'Multiple Recipients Test'
+                    && $email->getHtmlBody() === '<p>Hello everyone!</p>';
             }));
 
-        $this->mailerService->sendEmailVerification($toEmail, $verificationToken);
-    }
-
-    public function testSendEmailVerificationWithoutAppUrl(): void
-    {
-        $toEmail = 'user@example.com';
-        $verificationToken = 'abc123token';
-        $renderedTemplate = '<p>Please verify your email</p>';
-
-        unset($_ENV['APP_URL']);
-
-        $this->twig->expects($this->once())
-            ->method('render')
-            ->with('emails/verification.html.twig', [
-                'verification_url' => 'http://localhost:8001/verify-email?token=abc123token',
-            ])
-            ->willReturn($renderedTemplate);
-
-        $this->mailer->expects($this->once())
-            ->method('send');
-
-        $this->mailerService->sendEmailVerification($toEmail, $verificationToken);
-    }
-
-    public function testSendContactMessageCallsTwigRenderWithCorrectParameters(): void
-    {
-        $fromEmail = 'sender@test.com';
-        $messageContent = 'Hello world';
-
-        $this->twig->expects($this->once())
-            ->method('render')
-            ->with(
-                $this->equalTo('emails/contact.html.twig'),
-                $this->equalTo([
-                    'email' => $fromEmail,
-                    'message' => $messageContent,
-                ])
-            )
-            ->willReturn('<html>test</html>');
-
-        $this->mailer->expects($this->once())
-            ->method('send');
-
-        $this->mailerService->sendContactMessage($fromEmail, $messageContent);
-    }
-
-    public function testSendEmailVerificationCallsTwigRenderWithCorrectParameters(): void
-    {
-        $toEmail = 'recipient@test.com';
-        $token = 'verification-token-123';
-
-        $_ENV['APP_URL'] = 'https://myapp.com';
-
-        $this->twig->expects($this->once())
-            ->method('render')
-            ->with(
-                $this->equalTo('emails/verification.html.twig'),
-                $this->equalTo([
-                    'verification_url' => 'https://myapp.com/verify-email?token=verification-token-123',
-                ])
-            )
-            ->willReturn('<html>verify</html>');
-
-        $this->mailer->expects($this->once())
-            ->method('send');
-
-        $this->mailerService->sendEmailVerification($toEmail, $token);
+        $this->mailerService->send($emailDto);
     }
 }

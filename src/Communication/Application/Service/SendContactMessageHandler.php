@@ -3,17 +3,21 @@ declare(strict_types=1);
 
 namespace App\Communication\Application\Service;
 
-use App\Communication\Application\MailerService;
+use App\Communication\Application\Dto\ContactMessageDto;
+use App\Communication\Domain\Service\MailerServiceInterface;
 
 readonly class SendContactMessageHandler
 {
     public function __construct(
-        private MailerService $mailerHandler,
+        private MailerServiceInterface $mailerService,
+        private EmailBuilder $emailBuilder,
     ) {
     }
 
     public function processContactForm(string $email, string $message): void
     {
-        $this->mailerHandler->sendContactMessage($email, $message);
+        $contactMessageDto = new ContactMessageDto($email, $message);
+        $emailDto = $this->emailBuilder->buildContactEmail($contactMessageDto);
+        $this->mailerService->send($emailDto);
     }
 }

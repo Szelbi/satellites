@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Communication\Application\MailerService;
+use App\Communication\Application\Service\SendEmailVerificationHandler;
 use App\User\Domain\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -13,7 +13,7 @@ readonly class UserRegistrationHandler
     public function __construct(
         private EntityManagerInterface $entityManager,
         private UserPasswordHasherInterface $passwordHasher,
-        private MailerService $mailerService,
+        private SendEmailVerificationHandler $emailVerificationHandler,
     ) {
     }
 
@@ -29,7 +29,7 @@ readonly class UserRegistrationHandler
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        $this->mailerService->sendEmailVerification($user->getEmail(), $verificationToken);
+        $this->emailVerificationHandler->sendEmailVerification($user->getEmail(), $verificationToken);
     }
 
     private function generateVerificationToken(): string
