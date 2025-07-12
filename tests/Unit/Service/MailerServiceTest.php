@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Service;
 
-use App\Handler\MailerHandler;
+use App\Communication\Application\MailerHandler;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
 /**
- * @covers \App\Handler\MailerHandler
+ * @covers \App\Communication\Application\MailerHandler
  */
 class MailerServiceTest extends TestCase
 {

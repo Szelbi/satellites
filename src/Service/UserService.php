@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
+use App\User\Domain\Entity\User;
+use App\User\Infrastructure\Repository\UserRepository;
 use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

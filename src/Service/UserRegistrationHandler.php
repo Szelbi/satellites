@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use App\Entity\User;
-use App\Handler\MailerHandler;
+use App\Communication\Application\MailerHandler;
+use App\User\Domain\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
