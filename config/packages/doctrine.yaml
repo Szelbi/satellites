@@ -5,12 +5,30 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
+            Shared:
                 is_bundle: false
                 type: attribute
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                dir: '%kernel.project_dir%/src/Shared/Domain/Entity'
+                prefix: 'App\Shared\Domain\Entity'
+                alias: Shared
+            Satellite:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/Satellite/Domain/Entity'
+                prefix: 'App\Satellite\Domain\Entity'
+                alias: Satellite
+            Todo:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/Todo/Domain/Entity'
+                prefix: 'App\Todo\Domain\Entity'
+                alias: Todo
+            User:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/User/Domain/Entity'
+                prefix: 'App\User\Domain\Entity'
+                alias: User
 when@test:
     doctrine:
         dbal:

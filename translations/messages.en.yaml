@@ -20,7 +20,7 @@ main:
     login: Login
     login_btn: Login
     logout: Logout
-    main_page_title: 'Main page'
+    home_page_title: 'Main page'
     no_account: "Don't have an account?"
     password_mismatch: 'Passwords do not match'
     should_agree_terms: 'You should agree to our terms.'

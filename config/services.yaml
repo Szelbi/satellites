@@ -17,10 +17,11 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/*/Domain/Entity/'
             - '../src/Kernel.php'
 
-    App\Service\WeatherApiService:
+
+    App\Weather\Application\WeatherApiHandler:
         arguments:
             $weatherApiKey: '%env(WEATHER_API_KEY)%'
             $weatherApiUrl: '%env(WEATHER_API_URL)%'
