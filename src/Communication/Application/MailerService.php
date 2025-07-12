@@ -7,7 +7,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
-readonly class MailerHandler
+readonly class MailerService
 {
     public function __construct(
         private MailerInterface $mailer,
@@ -17,9 +17,9 @@ readonly class MailerHandler
 
     public function sendContactMessage(string $fromEmail, string $messageContent): void
     {
-        $email = (new Email())
+        $email = new Email()
             ->from($fromEmail)
-            ->to('example@mail.com')
+            ->to('dawidgos25@gmail.com')
             ->subject('New Contact Form Submission')
             ->html($this->twig->render('emails/contact.html.twig', [
                 'email' => $fromEmail,
@@ -37,7 +37,7 @@ readonly class MailerHandler
             $verificationToken
         );
 
-        $email = (new Email())
+        $email = new Email()
             ->from('dawid.sender@gmail.com')
             ->to($toEmail)
             ->subject('Potwierdź swój email')

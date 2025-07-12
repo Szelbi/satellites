@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Service;
 
-use App\Communication\Application\MailerHandler;
+use App\Communication\Application\MailerService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Twig\Environment;
 
 /**
- * @covers \App\Communication\Application\MailerHandler
+ * @covers \App\Communication\Application\MailerService
  */
 class MailerServiceTest extends TestCase
 {
     private MailerInterface $mailer;
     private Environment $twig;
-    private MailerHandler $mailerService;
+    private MailerService $mailerService;
 
     protected function setUp(): void
     {
         $this->mailer = $this->createMock(MailerInterface::class);
         $this->twig = $this->createMock(Environment::class);
-        $this->mailerService = new MailerHandler($this->mailer, $this->twig);
+        $this->mailerService = new MailerService($this->mailer, $this->twig);
     }
 
     public function testSendContactMessage(): void
@@ -44,7 +44,7 @@ class MailerServiceTest extends TestCase
             ->method('send')
             ->with($this->callback(function (Email $email): bool {
                 return $email->getFrom()[0]->getAddress() === 'test@example.com'
-                    && $email->getTo()[0]->getAddress() === 'example@mail.com'
+                    && $email->getTo()[0]->getAddress() === 'dawidgos25@gmail.com'
                     && $email->getSubject() === 'New Contact Form Submission'
                     && $email->getHtmlBody() === '<h1>Contact Message</h1><p>Test message content</p>';
             }));
