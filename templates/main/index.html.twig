@@ -7,16 +7,8 @@
 
         <div class="page-header">
             <h1>{{ 'main.home_page_title'|trans }}</h1>
-        </div>
-
-        <div class="endpoints-container">
-            <div class="endpoints-container-list">
-                {% for menuItem in menuItems %}
-                    <a href="{{ path(menuItem.route) }}" class="button">
-                        <i class="bi bi-{{ menuItem.icon }}"></i>
-                        {{ menuItem.translationKey|trans }}
-                    </a>
-                {% endfor %}
+            <div class="additional-info">
+                <p>{{ 'main.welcome_message'|trans }}</p>
             </div>
         </div>
 

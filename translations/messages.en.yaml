@@ -27,6 +27,7 @@ main:
     password: Password
     register: Register
     value: Value
+    welcome_message: 'Welcome to Szelbi''s Workspace! Use the navigation menu on the left to explore available features.'
 menu:
     contact_form: 'Contact Form'
     todo: 'Todo'

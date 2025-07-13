@@ -27,6 +27,7 @@ main:
     password: Hasło
     register: Rejestracja
     value: Wartość
+    welcome_message: 'Witaj w Szelbi''s Workspace! Użyj menu nawigacyjnego po lewej stronie aby eksplorować dostępne funkcje.'
 menu:
     contact_form: 'Formularz kontaktowy'
     todo: 'Lista zadań'
