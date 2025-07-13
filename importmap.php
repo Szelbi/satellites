@@ -28,6 +28,10 @@ return [
         'path' => 'js/todo.js',
         'entrypoint' => true,
     ],
+    'sidebar' => [
+        'path' => 'js/sidebar.js',
+        'entrypoint' => true,
+    ],
     'jquery' => [
         'version' => '3.7.1',
     ],

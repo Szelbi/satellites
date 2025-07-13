@@ -44,45 +44,115 @@ body {
 }
 
 .sidebar {
-    max-width: 270px;
+    width: 270px;
     position: fixed;
-    top: 100px;
     left: 0;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+    background-color: $primaryBgColor;
+    color: white;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+    &.collapsed {
+        width: 60px;
+        
+        .sidebar-nav .sidebar-link span {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .sidebar-toggle i {
+            transform: rotate(90deg);
+        }
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        i {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+    }
 
     .sidebar-nav {
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        padding: 0 15px;
+        gap: 8px;
+        padding: 60px 15px 15px;
+        height: 100%;
+        overflow-y: auto;
 
-        .sidebar-link {
+        a.sidebar-link {
             display: flex;
             align-items: center;
             gap: 10px;
             padding: 15px;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
+            white-space: nowrap;
 
             i {
-                font-size: 1.2em;
+                font-size: 18px;
                 width: 20px;
                 text-align: center;
+                flex-shrink: 0;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            span {
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                opacity: 1;
+                transform: translateX(0);
+                color: rgba(255, 255, 255, 0.9);
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
-                color: rgba(0, 0, 0, 0.9);
-                transform: translateX(5px);
+                background-color: rgba(255, 255, 255, 0.15);
+                color: white;
+                transform: translateX(3px);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                
+                i, span {
+                    color: white;
+                }
+            }
+
+            &:visited,
+            &:link {
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
             }
 
             &.active {
-                background-color: $primaryBgColor;
+                background-color: rgba(255, 255, 255, 0.25);
                 color: white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                
+                i, span {
+                    color: white;
+                }
             }
         }
     }
@@ -90,8 +160,46 @@ body {
 
 .main-content {
     flex: 1;
-    margin-left: 250px;
+    margin-left: 270px;
     padding: 0 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-layout:has(.sidebar.collapsed) .main-content {
+    margin-left: 60px;
+}
+
+// Tooltip for collapsed sidebar
+.sidebar-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    &.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 6px solid transparent;
+        border-right-color: rgba(0, 0, 0, 0.9);
+    }
 }
 
 th, td {

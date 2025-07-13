@@ -21,7 +21,7 @@ class ContactController extends AbstractController
             $contactService->processContactForm($data['email'], $data['message']);
 
             $this->addFlash('success', 'Your message has been sent!'); //todo translations
-            return $this->redirectToRoute('contact_form_index');
+            return $this->redirectToRoute('home_page');
         }
 
         return $this->render('contact/contact.html.twig', [
