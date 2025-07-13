@@ -1,5 +1,6 @@
 #!/bin/bash
 
-php bin/console sass:build
+php bin/console sass:build -q
+php bin/console importmap:update
 
-echo "CSS built"
+echo "CSS built & assets packaged updated"

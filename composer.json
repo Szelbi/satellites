@@ -34,7 +34,6 @@
         "symfony/yaml": "^7.3",
         "symfonycasts/sass-bundle": "^0.7",
         "symfonycasts/verify-email-bundle": "^1.14",
-        "twbs/bootstrap": "^5.3",
         "twig/extra-bundle": "^3.0",
         "twig/twig": "^3.0"
     },

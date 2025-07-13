@@ -6,6 +6,8 @@
     <title>{% block title %}Szelbi's Workspace{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.min.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
     {% endblock %}
 </head>

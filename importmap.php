@@ -32,16 +32,16 @@ return [
         'version' => '3.7.1',
     ],
     'bootstrap' => [
-        'version' => '5.3.3',
+        'version' => '5.3.7',
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
     'bootstrap/dist/css/bootstrap.min.css' => [
-        'version' => '5.3.3',
+        'version' => '5.3.7',
         'type' => 'css',
     ],
-    'bootstrap-icons/font/bootstrap-icons.css' => [
+    'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.13.1',
         'type' => 'css',
     ],

@@ -1,8 +1,4 @@
 @import "variables";
-@import "todo";
-
-@import "../../vendor/twbs/bootstrap/scss/bootstrap.scss";
-@import "../../bootstrap-icons/font/bootstrap-icons.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
@@ -188,7 +184,7 @@ a p {
 
         div {
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 2fr 3fr;
             gap: 3px 25px;
 
             label {
