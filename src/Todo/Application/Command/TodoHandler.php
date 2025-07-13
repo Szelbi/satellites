@@ -3,21 +3,14 @@ declare(strict_types=1);
 
 namespace App\Todo\Application\Command;
 
-use App\Service\Trait\TransactionalMakeTrait;
-use App\Service\TransactionalMakeInterface;
 use App\Todo\Domain\Entity\Todo;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
+use App\Todo\Domain\Repository\TodoRepositoryInterface;
 
-class TodoHandler implements TransactionalMakeInterface
+readonly class TodoHandler
 {
-    use TransactionalMakeTrait;
-
-    private EntityRepository $repository;
-
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->repository = $em->getRepository(Todo::class);
+    public function __construct(
+        private TodoRepositoryInterface $repository
+    ) {
     }
 
     public function getAll(): array
@@ -27,13 +20,16 @@ class TodoHandler implements TransactionalMakeInterface
 
     public function getById(int $id): ?Todo
     {
-        return $this->repository->find($id);
+        return $this->repository->findById($id);
     }
 
-    public function make($model): EntityManagerInterface
+    public function save(Todo $todo): void
     {
-        $this->em->persist($model);
+        $this->repository->save($todo);
+    }
 
-        return $this->em;
+    public function remove(Todo $todo): void
+    {
+        $this->repository->remove($todo);
     }
 }

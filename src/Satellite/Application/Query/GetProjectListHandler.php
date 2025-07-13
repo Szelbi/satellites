@@ -4,8 +4,7 @@ declare(strict_types=1);
 namespace App\Satellite\Application\Query;
 
 use App\Satellite\Domain\Entity\Satellite;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityRepository;
+use App\Satellite\Domain\Repository\SatelliteRepositoryInterface;
 
 class GetProjectListHandler
 {
@@ -14,11 +13,9 @@ class GetProjectListHandler
         'restapi'
     ];
 
-    private EntityRepository $repository;
-
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->repository = $em->getRepository(Satellite::class);
+    public function __construct(
+        private readonly SatelliteRepositoryInterface $repository
+    ) {
     }
 
     public function getAllSatellites(): array
@@ -35,5 +32,4 @@ class GetProjectListHandler
 
         return array_merge($satellites, self::API_PROJECTS_DOMAINS);
     }
-
 }
