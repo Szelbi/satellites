@@ -2,6 +2,7 @@
 @import "todo";
 
 @import "../../vendor/twbs/bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
@@ -130,15 +131,26 @@ a p {
         flex-direction: column;
 
         a {
-            padding: 5px;
+            padding: 15px 20px;
             margin: 5px 0;
             box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
             text-decoration: none;
             background-color: rgba(255, 255, 255, 0.5);
             color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+
+            i {
+                font-size: 1.2em;
+                width: 20px;
+                text-align: center;
+            }
 
             &:hover {
                 box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+                background-color: rgba(255, 255, 255, 0.7);
             }
         }
     }

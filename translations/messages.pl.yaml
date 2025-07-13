@@ -27,6 +27,12 @@ main:
     password: Hasło
     register: Rejestracja
     value: Wartość
+menu:
+    contact_form: 'Formularz kontaktowy'
+    todo: 'Lista zadań'
+    weather: 'Pogoda'
+    lucky_number: 'Szczęśliwy numer'
+    projects: 'Projekty'
 weather:
     condition: Warunki
     feels_like: Odczuwalna

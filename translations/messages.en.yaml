@@ -27,6 +27,12 @@ main:
     password: Password
     register: Register
     value: Value
+menu:
+    contact_form: 'Contact Form'
+    todo: 'Todo'
+    weather: 'Weather'
+    lucky_number: 'Lucky number'
+    projects: 'Projects'
 weather:
     condition: Condition
     feels_like: 'Feels Like'

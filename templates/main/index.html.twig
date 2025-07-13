@@ -11,8 +11,11 @@
 
         <div class="endpoints-container">
             <div class="endpoints-container-list">
-                {% for key, value in routes %}
-                    <a href="{{ path(key) }}" class="button">{{ value }}</a>
+                {% for menuItem in menuItems %}
+                    <a href="{{ path(menuItem.route) }}" class="button">
+                        <i class="bi bi-{{ menuItem.icon }}"></i>
+                        {{ menuItem.translationKey|trans }}
+                    </a>
                 {% endfor %}
             </div>
         </div>
