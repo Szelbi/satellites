@@ -2,7 +2,7 @@
 @import "todo";
 
 @import "../../vendor/twbs/bootstrap/scss/bootstrap.scss";
-@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "../../bootstrap-icons/font/bootstrap-icons.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
@@ -131,7 +131,7 @@ a p {
         flex-direction: column;
 
         a {
-            padding: 15px 20px;
+            padding: 10px;
             margin: 5px 0;
             box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
             text-decoration: none;

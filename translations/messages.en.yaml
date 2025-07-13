@@ -32,7 +32,7 @@ menu:
     todo: 'Todo'
     weather: 'Weather'
     lucky_number: 'Lucky number'
-    projects: 'Projects'
+    projects: 'Project list'
 weather:
     condition: Condition
     feels_like: 'Feels Like'

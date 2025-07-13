@@ -32,7 +32,7 @@ menu:
     todo: 'Lista zadań'
     weather: 'Pogoda'
     lucky_number: 'Szczęśliwy numer'
-    projects: 'Projekty'
+    projects: 'Lista projektów'
 weather:
     condition: Warunki
     feels_like: Odczuwalna
