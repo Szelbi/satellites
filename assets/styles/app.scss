@@ -1,5 +1,6 @@
 @import "variables";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import "todo";
 
 :root {
     --navbar-margin-bottom: 25px;
@@ -39,45 +40,56 @@ body {
 }
 
 .main-layout {
-    display: flex;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 50px;
 }
 
 .sidebar {
-    min-width: 270px;
-    position: fixed;
-    left: 0;
+    max-width: 270px;
+    height: fit-content;
     background: $primaryBgColor;
     transition: all 0.3s ease;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
 
     &.collapsed {
-        min-width: 60px;
-        span { display: none; }
-        .sidebar-toggle i { transform: rotate(90deg); }
+        width: 50px;
+        span {
+            display: none;
+        }
+        .sidebar-toggle i {
+            transform: rotate(90deg);
+        }
     }
 
-    .sidebar-toggle {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 30px;
-        height: 30px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 6px;
-        cursor: pointer;
+    .sidebar-header {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        &:hover { background: rgba(255, 255, 255, 0.2); }
-        i { transition: transform 0.3s ease; }
+        justify-content: flex-end;
+
+        .sidebar-toggle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-top-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+            i {
+                transition: transform 0.5s ease;
+            }
+        }
     }
 
     .sidebar-nav {
-        padding: 60px 15px 15px;
+        //padding: 15px;
         
         a {
             display: flex;
@@ -107,14 +119,14 @@ body {
 
 .main-content {
     flex: 1;
-    margin-left: 270px;
+    //margin-left: 270px;
     padding: 0 20px;
     transition: margin-left 0.3s ease;
 }
 
-.sidebar.collapsed ~ .main-content {
-    margin-left: 60px;
-}
+//.sidebar.collapsed ~ .main-content {
+//    margin-left: 60px;
+//}
 
 
 th, td {
@@ -178,14 +190,15 @@ a p {
             font-size: 2rem;
             text-align: center;
             text-shadow: 2px 2px 6px #6669;
+        }
+    }
 
-            .additional-info {
-                font-size: 1.2rem;
-                padding: 10px;
-                p {
-                    margin-bottom: 0;
-                }
-            }
+    .additional-info {
+        font-size: 1.3rem;
+        text-shadow: 2px 2px 6px #6669;
+        padding: 10px;
+        p {
+            margin-bottom: 0;
         }
     }
 }
@@ -197,6 +210,7 @@ a p {
 #lucky-number {
     font-size: 5rem;
     font-weight: bold;
+    text-shadow: 2px 2px 6px $primaryFontColor;
 }
 
 .endpoints-container {

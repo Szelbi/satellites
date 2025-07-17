@@ -35,3 +35,4 @@ Admin login: `admin@mail.com:admin`
 - resetowanie hasla
 - metody flash nie dzialaja
 - przejscie na DDD albo cos posredniego
+- poprawki w todo list

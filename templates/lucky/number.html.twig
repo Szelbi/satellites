@@ -4,14 +4,16 @@
 
 {% block body %}
 
-    <div class="container">
+    <div class="container width-sm">
         <div class="page-header">
             <h2>Your lucky number is </h2>
-            <p id="lucky-number">{{ number }}</p>
         </div>
-        <button class="btn-spinner" id="btn-spinner">
-            <img class="icon-spinner" id="spinner-icon" src="{{ asset('images/refresh.svg') }}" alt="spinner">
-        </button>
+        <div class="container lucky-number-container">
+            <h2 id="lucky-number">{{ number }}</h2>
+            <button class="btn-spinner" id="btn-spinner">
+                <img class="icon-spinner" id="spinner-icon" src="{{ asset('images/refresh.svg') }}" alt="spinner">
+            </button>
+        </div>
     </div>
 
 {% endblock %}

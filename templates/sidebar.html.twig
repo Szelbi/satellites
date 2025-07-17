@@ -1,0 +1,29 @@
+{% block sidebar %}
+    <div class="sidebar-header">
+        <div class="sidebar-toggle" id="sidebarToggle">
+            <i class="bi bi-list"></i>
+        </div>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="{{ path('contact_form_index') }}" class="sidebar-link" title="{{ 'menu.contact_form'|trans }}">
+            <i class="bi bi-envelope"></i>
+            <span>{{ 'menu.contact_form'|trans }}</span>
+        </a>
+        <a href="{{ path('todo_index') }}" class="sidebar-link" title="{{ 'menu.todo'|trans }}">
+            <i class="bi bi-list-check"></i>
+            <span>{{ 'menu.todo'|trans }}</span>
+        </a>
+        <a href="{{ path('weather_index') }}" class="sidebar-link" title="{{ 'menu.weather'|trans }}">
+            <i class="bi bi-cloud-sun"></i>
+            <span>{{ 'menu.weather'|trans }}</span>
+        </a>
+        <a href="{{ path('lucky_number_index') }}" class="sidebar-link" title="{{ 'menu.lucky_number'|trans }}">
+            <i class="bi bi-dice-6"></i>
+            <span>{{ 'menu.lucky_number'|trans }}</span>
+        </a>
+        <a href="{{ path('projects_index') }}" class="sidebar-link" title="{{ 'menu.projects'|trans }}">
+            <i class="bi bi-folder"></i>
+            <span>{{ 'menu.projects'|trans }}</span>
+        </a>
+    </nav>
+{% endblock %}
