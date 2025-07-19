@@ -7,6 +7,7 @@ use App\Communication\Application\Service\EmailBuilder;
 use App\Communication\Application\Service\SendEmailVerificationHandler;
 use App\Tests\Unit\Service\Infrastructure\InMemory\InMemoryMailerService;
 use PHPUnit\Framework\TestCase;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 /**
@@ -25,7 +26,12 @@ class SendEmailVerificationHandlerTest extends TestCase
         $twig = $this->createMock(Environment::class);
         $twig->method('render')->willReturn('<html>Verification email content</html>');
         
-        $this->emailBuilder = new EmailBuilder($twig);
+        $translator = $this->createMock(TranslatorInterface::class);
+        $translator->method('trans')->willReturnMap([
+            ['email.verification.subject', [], null, null, 'Potwierdź swój email']
+        ]);
+        
+        $this->emailBuilder = new EmailBuilder($twig, $translator);
         $this->handler = new SendEmailVerificationHandler($this->mailerService, $this->emailBuilder);
     }
 
