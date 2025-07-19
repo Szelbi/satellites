@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}List of Satelites{% endblock %}
+{% block title %}{{ 'satellite.page_title'|trans }}{% endblock %}
 
 {% block body %}
 
     <div class="container width-md">
         <div class="page-header">
-            <h2>Satellites list</h2>
+            <h2>{{ 'satellite.title'|trans }}</h2>
         </div>
         <div class="container satellite-table-container">
             <label class="hidden" for="searchInput">Search</label>
-            <input type="text" id="searchInput" placeholder="Search...">
+            <input type="text" id="searchInput" placeholder="{{ 'main.search_placeholder'|trans }}">
 
             <table id="satellite-table">
                 <tr>
-                    <th>Prod</th>
-                    <th>Local</th>
+                    <th>{{ 'satellite.table.prod'|trans }}</th>
+                    <th>{{ 'satellite.table.local'|trans }}</th>
                 </tr>
                 {% for satellite in satellites %}
                     <tr>

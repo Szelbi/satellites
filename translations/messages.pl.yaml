@@ -4,6 +4,7 @@ contact_form:
     title: 'Skontaktuj się z nami'
     your_email: 'Twój email'
     your_message: 'Twoja wiadomość'
+    message_sent: 'Twoja wiadomość została wysłana!'
 footer:
     about: 'O nas'
     all_rights_reserved: 'Wszystkie prawa zastrzeżone'
@@ -28,6 +29,7 @@ main:
     register: Rejestracja
     value: Wartość
     welcome_message: 'Witaj w Szelbi''s Workspace! Użyj menu nawigacyjnego po lewej stronie aby eksplorować dostępne funkcje.'
+    search_placeholder: 'Szukaj...'
 menu:
     contact_form: 'Formularz kontaktowy'
     todo: 'Lista zadań'
@@ -42,3 +44,45 @@ weather:
     temperature: Temperatura
     wind_direction: 'Kierunek wiatru'
     wind_speed: 'Prędkość wiatru'
+    page_title: 'Warunki pogodowe'
+    conditions_for: 'Warunki pogodowe dla %city%, %country%'
+    request_time: 'Czas żądania:'
+    last_updated: 'Ostatnio zaktualizowane:'
+email:
+    verification:
+        title: 'Potwierdź swój email'
+        subject: 'Potwierdź swój email'
+        hello: 'Cześć!'
+        thank_you: 'Dziękujemy za rejestrację w naszym serwisie. Aby dokończyć proces rejestracji, musisz potwierdzić swój adres email.'
+        click_button: 'Kliknij w poniższy przycisk, aby potwierdzić swój email:'
+        confirm_button: 'Potwierdź email'
+        button_not_working: 'Jeśli przycisk nie działa, możesz skopiować i wkleić poniższy link do przeglądarki:'
+        not_registered: 'Jeśli nie rejestrowałeś się w naszym serwisie, możesz zignorować ten email.'
+        footer: 'Ten email został wysłany automatycznie. Prosimy nie odpowiadać na tę wiadomość.'
+    contact:
+        title: 'Nowa wiadomość kontaktowa'
+        subject: 'Nowe zgłoszenie z formularza kontaktowego'
+        new_message_from: 'Nowa wiadomość od'
+        message_label: 'Wiadomość:'
+todo:
+    page_title: 'Lista zadań!'
+    title: 'Lista zadań'
+    filter:
+        all: 'Wszystkie'
+        done: 'Zrobione'
+        todo: 'Do zrobienia'
+    error:
+        not_found: 'Element nie został znaleziony'
+        no_item: 'Nie znaleziono elementu'
+        id_not_found: 'Element o podanym ID nie został znaleziony'
+    success:
+        deleted: 'Element został pomyślnie usunięty'
+satellite:
+    page_title: 'Lista projektów'
+    title: 'Lista projektów'
+    table:
+        prod: 'Prod'
+        local: 'Local'
+user:
+    registration:
+        success: 'Konto zostało utworzone. Sprawdź email i potwierdź swoją rejestrację.'

@@ -4,6 +4,7 @@ contact_form:
     title: 'Contact us'
     your_email: 'Your email'
     your_message: 'Your message'
+    message_sent: 'Your message has been sent!'
 footer:
     about: About
     all_rights_reserved: 'All rights reserved'
@@ -28,6 +29,7 @@ main:
     register: Register
     value: Value
     welcome_message: 'Welcome to Szelbi''s Workspace! Use the navigation menu on the left to explore available features.'
+    search_placeholder: 'Search...'
 menu:
     contact_form: 'Contact Form'
     todo: 'Todo'
@@ -42,3 +44,45 @@ weather:
     temperature: Temperature
     wind_direction: 'Wind Direction'
     wind_speed: 'Wind Speed'
+    page_title: 'Weather conditions'
+    conditions_for: 'Weather conditions for %city%, %country%'
+    request_time: 'Request time:'
+    last_updated: 'Last updated:'
+email:
+    verification:
+        title: 'Confirm your email'
+        subject: 'Confirm your email'
+        hello: 'Hello!'
+        thank_you: 'Thank you for registering with our service. To complete the registration process, you need to confirm your email address.'
+        click_button: 'Click the button below to confirm your email:'
+        confirm_button: 'Confirm email'
+        button_not_working: 'If the button doesn''t work, you can copy and paste the following link into your browser:'
+        not_registered: 'If you didn''t register with our service, you can ignore this email.'
+        footer: 'This email was sent automatically. Please do not reply to this message.'
+    contact:
+        title: 'New Contact Message'
+        subject: 'New Contact Form Submission'
+        new_message_from: 'New message from'
+        message_label: 'Message:'
+todo:
+    page_title: 'To-do List!'
+    title: 'Todo List'
+    filter:
+        all: 'All'
+        done: 'Done'
+        todo: 'To do'
+    error:
+        not_found: 'Item was not found'
+        no_item: 'No item was found'
+        id_not_found: 'Item with the specified ID not found'
+    success:
+        deleted: 'Item deleted successfully'
+satellite:
+    page_title: 'List of Satellites'
+    title: 'Satellites list'
+    table:
+        prod: 'Prod'
+        local: 'Local'
+user:
+    registration:
+        success: 'Account created. Check email and confirm registration.'

@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>New Contact Message</title>
+    <title>{{ 'email.contact.title'|trans }}</title>
 </head>
 <body>
-    <p>New message from <strong>{{ email }}</strong></p>
-    <p>Message:</p>
+    <p>{{ 'email.contact.new_message_from'|trans }} <strong>{{ email }}</strong></p>
+    <p>{{ 'email.contact.message_label'|trans }}</p>
     <p>{{ message }}</p>
 </body>
 </html>

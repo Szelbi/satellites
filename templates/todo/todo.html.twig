@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}To-do List!{% endblock %}
+{% block title %}{{ 'todo.page_title'|trans }}{% endblock %}
 
 {% block body %}
 
     <div class="container width-md">
         <div class="page-header">
-            <h2>Todo List</h2>
+            <h2>{{ 'todo.title'|trans }}</h2>
         </div>
         <form class="input-form">
             <input type="text" class="todo-input" id="todo-input-field">
@@ -17,17 +17,17 @@
         <form class="filter-container">
             <div class="todo-type-switch">
                 <input class="todo-type-switch-btn" type="radio" id="all" name="drone" value="all" checked/>
-                <label for="all">All</label>
+                <label for="all">{{ 'todo.filter.all'|trans }}</label>
             </div>
 
             <div class="todo-type-switch">
                 <input class="todo-type-switch-btn" type="radio" id="done" name="drone" value="done"/>
-                <label for="done">Done</label>
+                <label for="done">{{ 'todo.filter.done'|trans }}</label>
             </div>
 
             <div class="todo-type-switch">
                 <input class="todo-type-switch-btn" type="radio" id="todo" name="drone" value="todo"/>
-                <label for="todo">To do</label>
+                <label for="todo">{{ 'todo.filter.todo'|trans }}</label>
             </div>
         </form>
 

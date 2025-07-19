@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/todos')]
 class TodoController extends AbstractController
@@ -19,7 +20,8 @@ class TodoController extends AbstractController
     use FormHandleTrait;
 
     public function __construct(
-        private readonly TodoHandler $service
+        private readonly TodoHandler $service,
+        private readonly TranslatorInterface $translator
     ) {
     }
 
@@ -36,7 +38,7 @@ class TodoController extends AbstractController
     {
         $element = $this->service->getById($id);
         if(!$element) {
-            throw new NotFoundHttpException('Item was not found');
+            throw new NotFoundHttpException($this->translator->trans('todo.error.not_found'));
         }
 
         return $this->json($element);
@@ -48,7 +50,7 @@ class TodoController extends AbstractController
         $todos = $this->service->getAll();
 
         if(empty($todos)) {
-            throw new NotFoundHttpException('No item was found');
+            throw new NotFoundHttpException($this->translator->trans('todo.error.no_item'));
         }
 
         return $this->json($todos);
@@ -76,7 +78,7 @@ class TodoController extends AbstractController
         $todo = $entityManager->getRepository(Todo::class)->find($id);
 
         if (!$todo) {
-            throw $this->createNotFoundException('Item with the specified ID not found: '.$id);
+            throw $this->createNotFoundException($this->translator->trans('todo.error.id_not_found').': '.$id);
         }
 
         $form = $this->createForm(TodoType::class, $todo);
@@ -96,13 +98,13 @@ class TodoController extends AbstractController
         $todo = $entityManager->getRepository(Todo::class)->find($id);
 
         if (!$todo) {
-            throw $this->createNotFoundException('Item with the specified ID not found: '.$id);
+            throw $this->createNotFoundException($this->translator->trans('todo.error.id_not_found').': '.$id);
         }
 
         $entityManager->remove($todo);
         $entityManager->flush();
 
-        return $this->json(['message' => 'Item deleted successfully']);
+        return $this->json(['message' => $this->translator->trans('todo.success.deleted')]);
     }
 
 }

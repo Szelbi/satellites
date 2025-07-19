@@ -165,3 +165,24 @@ Always create separate files for better maintainability, autoloading, and code o
 
 ### File Formatting
 **ALWAYS end files with a single empty line.** This follows Git and POSIX standards for proper file formatting.
+
+### Translation System
+**CRITICAL**: All user-facing content MUST use the translation system. NEVER add hardcoded text in any language.
+
+#### Translation Requirements
+- **Templates**: Use `{{ 'translation.key'|trans }}` for all text content
+- **PHP Code**: Inject `TranslatorInterface` and use `$translator->trans('key')`
+- **Form Labels**: Use translation keys in form field options: `'label' => 'form.field_name'`
+- **Flash Messages**: Always use `$translator->trans('message.key')` instead of hardcoded strings
+- **Email Subjects**: Use translation keys in EmailBuilder service
+
+#### Translation Files
+- **English**: `translations/messages.en.yaml`
+- **Polish**: `translations/messages.pl.yaml`
+- Both files must be kept in sync with identical key structure
+```
+
+#### Before Adding New Content
+1. Add translation keys to both `messages.en.yaml` and `messages.pl.yaml`
+2. Use the translation system from the start - never hardcode first
+3. Test content in both languages before finalizing

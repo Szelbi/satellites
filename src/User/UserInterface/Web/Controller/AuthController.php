@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AuthController extends AbstractController
 {
@@ -31,7 +32,7 @@ class AuthController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserRegistrationHandler $registrationService): Response
+    public function register(Request $request, UserRegistrationHandler $registrationService, TranslatorInterface $translator): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -43,7 +44,7 @@ class AuthController extends AbstractController
                 $form->get('plainPassword')->getData()
             );
 
-            $this->addFlash('success', 'Konto zostało utworzone. Sprawdź email i potwierdź swoją rejestrację.');
+            $this->addFlash('success', $translator->trans('user.registration.success'));
             return $this->redirectToRoute('app_login');
         }
 

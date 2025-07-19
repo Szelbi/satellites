@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Potwierdź swój email</title>
+    <title>{{ 'email.verification.title'|trans }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,25 +42,25 @@
 </head>
 <body>
     <div class="header">
-        <h1>Potwierdź swój email</h1>
+        <h1>{{ 'email.verification.title'|trans }}</h1>
     </div>
     
     <div class="content">
-        <p>Cześć!</p>
+        <p>{{ 'email.verification.hello'|trans }}</p>
         
-        <p>Dziękujemy za rejestrację w naszym serwisie. Aby dokończyć proces rejestracji, musisz potwierdzić swój adres email.</p>
+        <p>{{ 'email.verification.thank_you'|trans }}</p>
         
-        <p>Kliknij w poniższy przycisk, aby potwierdzić swój email:</p>
+        <p>{{ 'email.verification.click_button'|trans }}</p>
         
-        <a href="{{ verification_url }}" class="button">Potwierdź email</a>
+        <a href="{{ verification_url }}" class="button">{{ 'email.verification.confirm_button'|trans }}</a>
         
-        <p>Jeśli przycisk nie działa, możesz skopiować i wkleić poniższy link do przeglądarki:</p>
+        <p>{{ 'email.verification.button_not_working'|trans }}</p>
         <p><a href="{{ verification_url }}">{{ verification_url }}</a></p>
         
-        <p>Jeśli nie rejestrowałeś się w naszym serwisie, możesz zignorować ten email.</p>
+        <p>{{ 'email.verification.not_registered'|trans }}</p>
         
         <div class="footer">
-            <p>Ten email został wysłany automatycznie. Prosimy nie odpowiadać na tę wiadomość.</p>
+            <p>{{ 'email.verification.footer'|trans }}</p>
         </div>
     </div>
 </body>

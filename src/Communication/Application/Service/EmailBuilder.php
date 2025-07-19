@@ -7,11 +7,13 @@ use App\Communication\Application\Dto\ContactMessageDto;
 use App\Communication\Application\Dto\EmailDto;
 use App\Communication\Application\Dto\EmailVerificationDto;
 use Twig\Environment;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 readonly class EmailBuilder
 {
     public function __construct(
         private Environment $twig,
+        private TranslatorInterface $translator,
     ) {
     }
 
@@ -25,7 +27,7 @@ readonly class EmailBuilder
         return new EmailDto(
             from: $contactMessage->fromEmail,
             to: 'dawidgos25@gmail.com',
-            subject: 'New Contact Form Submission',
+            subject: $this->translator->trans('email.contact.subject'),
             htmlContent: $htmlContent,
         );
     }
@@ -45,7 +47,7 @@ readonly class EmailBuilder
         return new EmailDto(
             from: 'dawid.sender@gmail.com',
             to: $verification->toEmail,
-            subject: 'Potwierdź swój email',
+            subject: $this->translator->trans('email.verification.subject'),
             htmlContent: $htmlContent,
         );
     }
