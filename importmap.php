@@ -32,6 +32,10 @@ return [
         'path' => 'js/sidebar.js',
         'entrypoint' => true,
     ],
+    'weather' => [
+        'path' => 'js/weather.js',
+        'entrypoint' => true,
+    ],
     'jquery' => [
         'version' => '3.7.1',
     ],

@@ -59,24 +59,13 @@
 
 {% endblock %}
 
-{% block importmap %}
-    {{ importmap('lucky_number') }}
+{% block additionalImportmap %}
+    {{ importmap('weather') }}
 {% endblock %}
 
-{% block javascripts %}
+{% block additionalJavascripts %}
     <script>
-        const btnSpinner = document.getElementById('btn-reloader');
-        document.getElementById('btn-reloader').addEventListener('click', function() {
-            fetch('{{ path('weather_update') }}')
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelectorAll('tbody td[data-key]').forEach(cell => {
-                        cell.textContent = data[cell.getAttribute('data-key')];
-                    });
-                    document.getElementById('last-updated').textContent = data.lastUpdated;
-                    document.getElementById('request-time').textContent = data.requestTime;
-                })
-                .catch(error => console.error('Error fetching weather data:', error));
-        });
+        // Set global variable for weather.js to use
+        window.weatherUpdateUrl = '{{ path('weather_update') }}';
     </script>
 {% endblock %}

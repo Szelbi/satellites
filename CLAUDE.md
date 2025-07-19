@@ -180,9 +180,26 @@ Always create separate files for better maintainability, autoloading, and code o
 - **English**: `translations/messages.en.yaml`
 - **Polish**: `translations/messages.pl.yaml`
 - Both files must be kept in sync with identical key structure
-```
+
 
 #### Before Adding New Content
 1. Add translation keys to both `messages.en.yaml` and `messages.pl.yaml`
 2. Use the translation system from the start - never hardcode first
 3. Test content in both languages before finalizing
+
+## Testing Policy
+
+**CRITICAL**: After making ANY code changes, ALWAYS run unit tests to ensure nothing is broken.
+
+### Running Tests
+- **Command**: `docker exec workbench-app vendor/bin/phpunit --no-coverage --stop-on-failure`
+- **When to run**: After every code modification
+- **Requirement**: All tests MUST pass before proceeding with additional changes
+
+### Test-Driven Development Flow
+1. Make code changes
+2. Run unit tests immediately
+3. Fix any failing tests before continuing
+4. Only then proceed with next changes
+
+**Note**: The pre-push git hook will automatically run tests before allowing push to remote repository.

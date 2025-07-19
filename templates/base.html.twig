@@ -34,10 +34,12 @@
         {% block importmap %}
             {{ importmap('app') }}
             {{ importmap('sidebar') }}
+            {% block additionalImportmap %}{% endblock %}
             <script type="module">
                 import 'bootstrap';
             </script>
         {% endblock %}
+        {% block additionalJavascripts %}{% endblock %}
     {% endblock %}
 
 </body>
