@@ -1,4 +1,5 @@
 /.idea/
+/scratch/
 /config/packages/dev/
 /docker/mysql/data
 
