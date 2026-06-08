@@ -1,6 +1,7 @@
 /.idea/
 /scratch/
 /config/packages/dev/
+/config/reference.php
 /docker/mysql/data
 
 ###> symfony/framework-bundle ###
