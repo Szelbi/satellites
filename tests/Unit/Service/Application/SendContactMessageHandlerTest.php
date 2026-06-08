@@ -23,10 +23,10 @@ class SendContactMessageHandlerTest extends TestCase
     {
         $this->mailerService = new InMemoryMailerService();
         
-        $twig = $this->createMock(Environment::class);
+        $twig = $this->createStub(Environment::class);
         $twig->method('render')->willReturn('<html>Contact email content</html>');
-        
-        $translator = $this->createMock(TranslatorInterface::class);
+
+        $translator = $this->createStub(TranslatorInterface::class);
         $translator->method('trans')->willReturnMap([
             ['email.contact.subject', [], null, null, 'New Contact Form Submission']
         ]);
